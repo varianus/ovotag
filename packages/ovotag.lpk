@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Package Version="5">
+    <Name Value="ovotag"/>
+    <Type Value="RunAndDesignTime"/>
+    <CompilerOptions>
+      <Version Value="11"/>
+      <SearchPaths>
+        <IncludeFiles Value=".."/>
+        <OtherUnitFiles Value=".."/>
+        <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)/"/>
+      </SearchPaths>
+    </CompilerOptions>
+    <Files>
+      <Item>
+        <Filename Value="../audiotag.pas"/>
+        <UnitName Value="AudioTag"/>
+      </Item>
+      <Item>
+        <Filename Value="../basetag.pas"/>
+        <UnitName Value="basetag"/>
+      </Item>
+      <Item>
+        <Filename Value="../commonfunctions.pas"/>
+        <UnitName Value="CommonFunctions"/>
+      </Item>
+      <Item>
+        <Filename Value="../file_dummy.pas"/>
+        <UnitName Value="file_Dummy"/>
+      </Item>
+      <Item>
+        <Filename Value="../file_flac.pas"/>
+        <UnitName Value="file_flac"/>
+      </Item>
+      <Item>
+        <Filename Value="../file_monkey.pas"/>
+        <UnitName Value="file_Monkey"/>
+      </Item>
+      <Item>
+        <Filename Value="../file_mp3.pas"/>
+        <UnitName Value="file_mp3"/>
+      </Item>
+      <Item>
+        <Filename Value="../file_mp4.pas"/>
+        <UnitName Value="file_Mp4"/>
+      </Item>
+      <Item>
+        <Filename Value="../file_ogg.pas"/>
+        <UnitName Value="file_ogg"/>
+      </Item>
+      <Item>
+        <Filename Value="../file_opus.pas"/>
+        <UnitName Value="file_opus"/>
+      </Item>
+      <Item>
+        <Filename Value="../file_Wave.pas"/>
+        <UnitName Value="file_Wave"/>
+      </Item>
+      <Item>
+        <Filename Value="../file_wma.pas"/>
+        <UnitName Value="file_wma"/>
+      </Item>
+      <Item>
+        <Filename Value="../id3v1genres.pas"/>
+        <UnitName Value="ID3v1Genres"/>
+      </Item>
+      <Item>
+        <Filename Value="../ovotag.inc"/>
+        <Type Value="Include"/>
+      </Item>
+      <Item>
+        <Filename Value="../song.pas"/>
+        <UnitName Value="song"/>
+      </Item>
+      <Item>
+        <Filename Value="../tag_ape.pas"/>
+        <UnitName Value="tag_APE"/>
+      </Item>
+      <Item>
+        <Filename Value="../tag_dummy.pas"/>
+        <UnitName Value="tag_Dummy"/>
+      </Item>
+      <Item>
+        <Filename Value="../tag_id3v2.pas"/>
+        <UnitName Value="tag_id3v2"/>
+      </Item>
+      <Item>
+        <Filename Value="../tag_mp4.pas"/>
+        <UnitName Value="tag_MP4"/>
+      </Item>
+      <Item>
+        <Filename Value="../tag_vorbis.pas"/>
+        <UnitName Value="tag_vorbis"/>
+      </Item>
+      <Item>
+        <Filename Value="../tag_wma.pas"/>
+        <UnitName Value="tag_wma"/>
+      </Item>
+    </Files>
+    <LazDoc Paths="../doc"/>
+    <RequiredPkgs>
+      <Item>
+        <PackageName Value="LCL"/>
+      </Item>
+      <Item>
+        <PackageName Value="FCL"/>
+      </Item>
+    </RequiredPkgs>
+    <UsageOptions>
+      <UnitPath Value="$(PkgOutDir)"/>
+    </UsageOptions>
+    <PublishOptions>
+      <Version Value="2"/>
+      <UseFileFilters Value="True"/>
+    </PublishOptions>
+  </Package>
+</CONFIG>
