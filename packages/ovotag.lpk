@@ -3,14 +3,18 @@
   <Package Version="5">
     <Name Value="ovotag"/>
     <Type Value="RunAndDesignTime"/>
+    <Author Value="Marco Caselli &lt;marcocas@gmail.com>"/>
     <CompilerOptions>
       <Version Value="11"/>
       <SearchPaths>
         <IncludeFiles Value=".."/>
         <OtherUnitFiles Value=".."/>
-        <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)/"/>
+        <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
       </SearchPaths>
     </CompilerOptions>
+    <Description Value="Library to extract and modify meta-data (&quot;tags&quot;) from several audio files format"/>
+    <License Value="Modified LGPL"/>
+    <Version Major="1"/>
     <Files>
       <Item>
         <Filename Value="../audiotag.pas"/>
@@ -53,7 +57,7 @@
         <UnitName Value="file_opus"/>
       </Item>
       <Item>
-        <Filename Value="../file_Wave.pas"/>
+        <Filename Value="../file_wave.pas"/>
         <UnitName Value="file_Wave"/>
       </Item>
       <Item>
