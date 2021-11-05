@@ -23,7 +23,7 @@ unit file_Mp4;
 interface
 
 uses
-  Classes, lazutf8classes, SysUtils, AudioTag, baseTag, tag_Mp4, tag_id3v2, CommonFunctions;
+  Classes,  SysUtils, AudioTag, baseTag, tag_Mp4, tag_id3v2, CommonFunctions;
 
 const
   Mp4FileMask: string = '*.aac;*.m4a;';
@@ -86,7 +86,7 @@ type
     FSamples: int64;
     fDuration: int64;
     function DetectKind(AStream: TStream; Out HaveID3: boolean): StreamKind;
-    //function FindAtom(Stream: TFileStreamUTF8; AtomName: string; var Atom: RAtomHeader): boolean;
+    //function FindAtom(Stream: TFileStream; AtomName: string; var Atom: RAtomHeader): boolean;
   protected
     function GetDuration: int64; override;
     function GetTags: TTags; override;
@@ -343,7 +343,7 @@ end;
 
 function TMp4Reader.LoadFromFile(AFileName: Tfilename): boolean;
 var
-  fStream: TFileStreamUTF8;
+  fStream: TFileStream;
   HaveID3: boolean;
   Header: TADTSHeader;
   AtomList: TMP4AtomList;
@@ -366,7 +366,7 @@ begin
   Result := inherited LoadFromFile(AFileName);
   fTags := nil;
   fDuration := 0;
-  fStream := TFileStreamUTF8.Create(fileName, fmOpenRead or fmShareDenyNone);
+  fStream := TFileStream.Create(fileName, fmOpenRead or fmShareDenyNone);
   try
     case DetectKind(fStream, HaveID3) of
       skMp4:
