@@ -6,7 +6,7 @@ Ovotag is a library, written in FreePascal/Lazarus to read and modify meta-data 
 ### Supported file format 
 |File Format|Notes|  
 |-----|-----|
-|mp3 | read of ID3V1 and ID3V2 (any versione), save on ID3V2 2.3 |
+|mp3 | read of ID3V1 and ID3V2 (any versions), save on ID3V2 2.3 |
 |flac | read and save Vorbis tag|
 |mp4 (m4a,aac) | Read and save ATOM tags for m4a, only durations for aac|
 |wma | read and save ASF tags|
