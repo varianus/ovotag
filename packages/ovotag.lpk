@@ -100,14 +100,15 @@
         <Filename Value="../tag_wma.pas"/>
         <UnitName Value="tag_wma"/>
       </Item>
+      <Item>
+        <Filename Value="../registerallreader.pas"/>
+        <UnitName Value="registerallreader"/>
+      </Item>
     </Files>
     <LazDoc Paths="../doc"/>
     <RequiredPkgs>
       <Item>
-        <PackageName Value="LCL"/>
-      </Item>
-      <Item>
-        <PackageName Value="FCL"/>
+        <PackageName Value="LazUtils"/>
       </Item>
     </RequiredPkgs>
     <UsageOptions>
