@@ -46,7 +46,7 @@ type
     end;
 
     // parse parameters
-    if HasOption('h', 'help') then
+    if HasOption('h', '') then
     begin
       WriteHelp;
       Terminate;
@@ -54,7 +54,7 @@ type
     end;
 
     { add your program here }
-    Files := GetNonOptions('hcf', ['help']);
+    Files := GetNonOptions('hcf',[]);
     if Length(Files) = 0 then
     begin
       WriteHelp;
@@ -128,11 +128,11 @@ type
     writeln('ovotagdemo : extract audio metadata (tags) from audio files');
     writeln('Usage: ', ExeName, ' [OPTIONS] [FILES]');
     writeln('Options:');
-    writeln('    -h, --help ');
+    writeln('    -h');
     writeln('        Show usage info ');
-    writeln('    -c, --common ');
+    writeln('    -c');
     writeln('        Show only most common tags (Default) ');
-    writeln('    -f, --full ');
+    writeln('    -f');
     writeln('        Dump every available tags ');
 
   end;
