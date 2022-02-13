@@ -98,11 +98,14 @@ begin
 
   TagReader.LoadFromFile(OpenDialog1.FileName);
   CommonTags := TagReader.GetCommonTags;
-  for i := 0 to TagReader.Tags.Count - 1 do
-  begin
-    tmpsr := TagReader.Tags.Frames[i].ID + ' ---> ' + TagReader.Tags.Frames[i].AsString;
-    Memo1.Lines.Add(tmpsr);
-  end;
+  if Assigned(TagReader.Tags) then
+    for i := 0 to TagReader.Tags.Count - 1 do
+    begin
+      tmpsr := TagReader.Tags.Frames[i].ID + ' ---> ' + TagReader.Tags.Frames[i].AsString;
+      Memo1.Lines.Add(tmpsr);
+    end
+  else
+    memo1.lines.add ('No tags in this file');
 
   MediaInfoToMap;
   TagsToMap;
@@ -152,7 +155,8 @@ begin
 
   seTrack.Value := CommonTags.Track;
 
-  if TagReader.Tags.ImageCount > 0 then
+
+  if assigned(TagReader.Tags) and (TagReader.Tags.ImageCount > 0) then
   begin
     TagReader.Tags.Images[0].Image.Position := 0;
     ImageStream := TMemoryStream.Create;
