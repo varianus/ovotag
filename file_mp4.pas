@@ -401,7 +401,7 @@ begin
             begin
               trak := moov.Find('trak', EmptyAtom, EmptyAtom, EmptyAtom);
               if Assigned(trak) then
-                begin                2E 62 21
+                begin              
                   mdhd := trak.find('mdia', 'mdhd', EmptyAtom, EmptyAtom);
                   if Assigned(mdhd) then
                     FoundAtoms := True;
