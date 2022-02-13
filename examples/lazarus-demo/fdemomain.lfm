@@ -11,7 +11,7 @@ object Form1: TForm1
   OnDestroy = FormDestroy
   LCLVersion = '2.3.0.0'
   object Memo1: TMemo
-    Left = clBlack
+    Left = 0
     Height = 169
     Top = 476
     Width = 805
@@ -23,7 +23,7 @@ object Form1: TForm1
     TabOrder = 0
   end
   object gbCommonTags: TGroupBox
-    Left = clBlack
+    Left = 0
     Height = 299
     Top = 37
     Width = 805
@@ -33,7 +33,7 @@ object Form1: TForm1
     ClientWidth = 801
     TabOrder = 1
     object Label1: TLabel
-      Left = clBlack
+      Left = 0
       Height = 17
       Top = 45
       Width = 93
@@ -49,7 +49,7 @@ object Form1: TForm1
       TabOrder = 0
     end
     object Label2: TLabel
-      Left = clBlack
+      Left = 0
       Height = 17
       Top = 77
       Width = 93
@@ -65,7 +65,7 @@ object Form1: TForm1
       TabOrder = 1
     end
     object Label3: TLabel
-      Left = clBlack
+      Left = 0
       Height = 17
       Top = 12
       Width = 93
@@ -81,7 +81,7 @@ object Form1: TForm1
       TabOrder = 2
     end
     object Label4: TLabel
-      Left = clBlack
+      Left = 0
       Height = 17
       Top = 110
       Width = 93
@@ -97,7 +97,7 @@ object Form1: TForm1
       TabOrder = 3
     end
     object Label5: TLabel
-      Left = clBlack
+      Left = 0
       Height = 17
       Top = 143
       Width = 93
@@ -120,7 +120,7 @@ object Form1: TForm1
       TabOrder = 5
     end
     object Label6: TLabel
-      Left = clBlack
+      Left = 0
       Height = 17
       Top = 207
       Width = 93
@@ -137,7 +137,7 @@ object Form1: TForm1
       TabOrder = 6
     end
     object Label7: TLabel
-      Left = clBlack
+      Left = 0
       Height = 17
       Top = 170
       Width = 93
@@ -167,13 +167,13 @@ object Form1: TForm1
     object Image1: TImage
       Left = 502
       Height = 194
-      Top = clBlack
+      Top = 0
       Width = 280
       Stretch = True
     end
   end
   object gbMediaInfo: TGroupBox
-    Left = clBlack
+    Left = 0
     Height = 140
     Top = 336
     Width = 805
@@ -183,7 +183,7 @@ object Form1: TForm1
     ClientWidth = 801
     TabOrder = 2
     object Label9: TLabel
-      Left = clBlack
+      Left = 0
       Height = 16
       Top = 64
       Width = 106
@@ -199,7 +199,7 @@ object Form1: TForm1
       AutoSize = False
     end
     object Label10: TLabel
-      Left = clBlack
+      Left = 0
       Height = 16
       Top = 96
       Width = 106
@@ -263,9 +263,9 @@ object Form1: TForm1
       AutoSize = False
     end
     object Label14: TLabel
-      Left = clBlack
+      Left = 0
       Height = 16
-      Top = clBlack
+      Top = 0
       Width = 106
       Alignment = taRightJustify
       AutoSize = False
@@ -274,13 +274,13 @@ object Form1: TForm1
     object leFileName: TLabel
       Left = 117
       Height = 16
-      Top = clBlack
+      Top = 0
       Width = 665
       Anchors = [akTop, akLeft, akRight, akBottom]
       AutoSize = False
     end
     object Label15: TLabel
-      Left = clBlack
+      Left = 0
       Height = 16
       Top = 32
       Width = 106
@@ -297,9 +297,9 @@ object Form1: TForm1
     end
   end
   object Panel1: TPanel
-    Left = clBlack
+    Left = 0
     Height = 37
-    Top = clBlack
+    Top = 0
     Width = 805
     Align = alTop
     ClientHeight = 37
@@ -316,7 +316,7 @@ object Form1: TForm1
       TabOrder = 0
     end
     object bSaveAs: TButton
-      Left = clMaroon
+      Left = 128
       Height = 25
       Top = 1
       Width = 75
