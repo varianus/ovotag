@@ -28,7 +28,7 @@ Function Build-Project {
     @(
         @{
             Cmd = 'lazbuild'
-            Url = 'https://fossies.org/windows/misc/lazarus-3.6-fpc-3.2.2-win64.exe'
+            Url = 'https://sourceforge.net/projects/lazarus/files/Lazarus%20Windows%2064%20bits/Lazarus%203.8/lazarus-3.8-fpc-3.2.2-win64.exe'
             Path = "C:\Lazarus"
         }
     ) | Where-Object {
