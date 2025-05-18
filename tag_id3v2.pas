@@ -28,13 +28,13 @@ uses
 type
 
   TID3V1Record = packed record
-    Header: array [1..3] of AnsiChar;
-    Title: array [1..30] of AnsiChar;
-    Artist: array [1..30] of AnsiChar;
-    Album: array [1..30] of AnsiChar;
-    Year: array [1..4] of AnsiChar;
-    Comment: array [1..28] of AnsiChar;
-    Stopper: AnsiChar;
+    Header: array [1..3] of ansichar;
+    Title: array [1..30] of ansichar;
+    Artist: array [1..30] of ansichar;
+    Album: array [1..30] of ansichar;
+    Year: array [1..4] of ansichar;
+    Comment: array [1..28] of ansichar;
+    Stopper: ansichar;
     Track: byte;
     Genre: byte;
   end;
@@ -44,10 +44,10 @@ type
   { TID3Frame }
 
   TID3Frame = class(TFrameElement)
-  private
+  protected
     fSize: DWord;
     fFlags: DWord;
-    Data: RawByteString;
+    Data: rawbytestring;
     function IsValid: boolean;
   protected
     function GetSize: DWord; override;
@@ -55,12 +55,26 @@ type
     destructor Destroy; override;
     function GetAsString: string; override;
     procedure SetAsString(const AValue: string); override;
-    function ReadFromStream(AStream: TStream;ExtInfo:pointer=nil): boolean; override;
+    function ReadFromStream(AStream: TStream; ExtInfo: pointer = nil): boolean; override;
     function WriteToStream(AStream: TStream): DWord; override;
   end;
 
+  { TID3FrameComment }
+
+  TID3FrameComment = class(TID3Frame)
+  private
+    fLanguageID: string;
+    fDescription: string;
+  public
+    function GetAsString: string; override;
+  end;
 
   { TID3Tags }
+  RHeaderInfo = record
+    ID: string;
+    Flags: integer;
+    DataSize: integer;
+  end;
 
   TID3Tags = class(TTags)
   private
@@ -68,6 +82,9 @@ type
     procedure DecodeFrameToImage(Frame: TID3Frame; Image: TImageElement);
     function GetBestMatch(Index1, Index2: integer; NewFrame: boolean): string;
     function ImportFromID3V1(AStream: TStream): boolean;
+    function IsValid(ID: string): boolean;
+    function ReadTagHeader(AStream: TStream; out ID: string; out DataSize,
+      Flags: integer): boolean;
   public
     Version: word;
     FromV1: boolean;
@@ -75,7 +92,7 @@ type
     property Size: DWORD read fTotalSize;
     function GetCommonTags: TCommonTags; override;
     procedure SetCommonTags(CommonTags: TCommonTags); override;
-    function ReadFromStream(AStream: TStream;ExtInfo:pointer=nil): boolean; override;
+    function ReadFromStream(AStream: TStream; ExtInfo: pointer = nil): boolean; override;
     function WriteToStream(AStream: TStream): DWord; override;
   end;
 
@@ -107,7 +124,7 @@ type
 
 const
   ID3_HEADER_MARKER = 'ID3';
-//  ID3_FOOTER_MARKER = '3DI';
+  //  ID3_FOOTER_MARKER = '3DI';
 
   TAG_VERSION_2_2 = 2;
   TAG_VERSION_2_3 = 3;
@@ -136,7 +153,7 @@ const
     ('TPE2', 'TP2')
     );
 
-{ TID3Tags }
+  { TID3Tags }
 
 function TID3Tags.GetBestMatch(Index1, Index2: integer; NewFrame: boolean): string;
 begin
@@ -152,7 +169,7 @@ var
   Frame: TID3Frame;
 begin
   fTotalSize := 0;
-  Result := False;
+  Result     := False;
   AStream.Seek(AStream.Size - SizeOf(V1Rec), soFromBeginning);
   AStream.Read(V1Rec, SizeOf(V1Rec));
   if V1Rec.Header <> 'TAG' then
@@ -237,6 +254,54 @@ begin
 
 end;
 
+function TID3Tags.IsValid(ID: string): boolean;
+var
+  C: char;
+begin
+  Result := False;
+  if length(Id) < 3 then
+    exit;   // Corruption protection
+
+  for C in ID do
+    if not (C in ['A'..'Z', '0'..'9']) then
+      Exit;   // Corruption protection
+
+  Result := True;
+end;
+
+function TID3Tags.ReadTagHeader(AStream: TStream; out ID: string; out DataSize, Flags: integer): boolean;
+var
+  Header: TID3FrameHeader;
+  HeaderOld: TID3FrameHeaderOld;
+begin
+  Result := False;
+  if Version < TAG_VERSION_2_3 then
+  begin
+    AStream.Read(HeaderOld, SizeOf(HeaderOld));
+    ID    := string(HeaderOld.ID);
+    Flags := 0;
+    if not IsValid(ID) then
+      exit; // Corruption protection
+    DataSize := HeaderOld.Size[0] shl 16 + HeaderOld.Size[1] shl 8 + HeaderOld.Size[2];
+  end
+  else
+  begin
+    AStream.Read(Header, 10);
+    id := string(Header.ID);
+    if not IsValid(ID) then
+      exit; // Corruption protection
+    Flags := Header.Flags;
+    if Version >= TAG_VERSION_2_4 then
+      DataSize := SyncSafe_Decode(Header.Size)
+    else
+      DataSize := {Swap32}BEToN(Header.Size);
+  end;
+
+  if DataSize > Size then
+    exit; // Corruption protection
+  Result := True;
+end;
+
 function TID3Tags.GetCommonTags: TCommonTags;
 var
   UseOldTag: boolean;
@@ -244,15 +309,15 @@ begin
   Result := inherited GetCommonTags;
   UseOldTag := (Version <= TAG_VERSION_2_2) and not FromV1;
 
-  Result.Artist := GetBestMatch(2, 14, UseOldTag);
-  Result.Title  := GetBestMatch(1, 15, UseOldTag);
-  Result.Album  := GetBestMatch(3, 16, UseOldTag);
-  Result.Year   := GetBestMatch(13, 5, UseOldTag);
+  Result.Artist   := GetBestMatch(2, 14, UseOldTag);
+  Result.Title    := GetBestMatch(1, 15, UseOldTag);
+  Result.Album    := GetBestMatch(3, 16, UseOldTag);
+  Result.Year     := GetBestMatch(13, 5, UseOldTag);
   Result.AlbumArtist := GetContent(GetFrameValue(ID3V2_KNOWNFRAME[18, UseOldTag]), Result.Artist);
-  Result.Track := ExtractTrack(GetFrameValue(ID3V2_KNOWNFRAME[4, UseOldTag]));
+  Result.Track    := ExtractTrack(GetFrameValue(ID3V2_KNOWNFRAME[4, UseOldTag]));
   Result.TrackString := GetFrameValue(ID3V2_KNOWNFRAME[4, UseOldTag]);
-  Result.Comment := GetFrameValue(ID3V2_KNOWNFRAME[7, UseOldTag]);
-  Result.Genre := ExtractGenre(GetFrameValue(ID3V2_KNOWNFRAME[6, UseOldTag]));
+  Result.Comment  := GetFrameValue(ID3V2_KNOWNFRAME[7, UseOldTag]);
+  Result.Genre    := ExtractGenre(GetFrameValue(ID3V2_KNOWNFRAME[6, UseOldTag]));
   Result.HasImage := ImageCount > 0;
 
 end;
@@ -262,8 +327,8 @@ var
   UseOldTag: boolean;
 begin
   inherited SetCommonTags(CommonTags);
-  if Version = 0  then
-     Version := TAG_VERSION_2_3;
+  if Version = 0 then
+    Version := TAG_VERSION_2_3;
 
   UseOldTag := (Version <= TAG_VERSION_2_2) and not FromV1;
   SetFrameValue(ID3V2_KNOWNFRAME[2, UseOldTag], CommonTags.Artist, TID3Frame);
@@ -279,28 +344,28 @@ end;
 
 procedure TID3Tags.DecodeFrameToImage(Frame: TID3Frame; Image: TImageElement);
 var
-  wData: PChar;
+  wData: pchar;
   wDatasize: Dword;
   Encoding: byte;
 begin
   image.FrameRef := Frame;
-  wData := PChar((Frame.Data));
+  wData     := PChar((Frame.Data));
   wDatasize := Frame.fSize;
-  Encoding := pByte(wData)^;
+  Encoding  := pbyte(wData)^;
   Inc(wData);
   Dec(wDatasize);
-  image.MIMEType := pAnsiChar(wData);
+  image.MIMEType := pansichar(wData);
   Inc(wData, Length(image.MIMEType) + 1);
   Dec(wDataSize, Length(image.MIMEType) + 1);
 
   if Version > TAG_VERSION_2_2 then
   begin
-    Image.PictureType := pByte(wData)^;
+    Image.PictureType := pbyte(wData)^;
     Inc(wData, 1);
     Dec(wDatasize, 1);
   end;
 
-  if (pWord(wData)^ = $fffe)  or (pWord(wData)^ = $fefF) then
+  if (pWord(wData)^ = $fffe) or (pWord(wData)^ = $fefF) then
   begin
     Inc(wData, 2);
     Dec(wDatasize, 2);
@@ -308,36 +373,36 @@ begin
 
   if (encoding = 0) or (encoding = 3) then  //ISO-8859-1 or UTF-8
   begin
-      image.Description := pAnsiChar(wData);
-      Inc(wData, Length(image.Description) + 1 );
-      Dec(wDataSize, Length(image.Description) + 1 );
-    end
+    image.Description := pansichar(wData);
+    Inc(wData, Length(image.Description) + 1);
+    Dec(wDataSize, Length(image.Description) + 1);
+  end
   else  // UTF-16
-    begin
-      image.Description := pWideChar(wData);
-      Inc(wData, Length(image.Description) *2  + 2);
-      Dec(wDataSize, Length(image.Description) *2  + 2);
-    end;
+  begin
+    image.Description := pwidechar(wData);
+    Inc(wData, Length(image.Description) * 2 + 2);
+    Dec(wDataSize, Length(image.Description) * 2 + 2);
+  end;
 
   Image.Image.WriteBuffer(wData[0], wDatasize);
   image.Image.Position := 0;
 end;
 
-function TID3Tags.WriteToStream(AStream: TStream): Dword;
+function TID3Tags.WriteToStream(AStream: TStream): DWord;
 var
   header: TID3Header;
   tmpSize: DWORD;
   i: integer;
-  HeadSize : integer;
-//  CurrPos: int64;
+  HeadSize: integer;
+  //  CurrPos: int64;
 begin
-//  CurrPos := AStream.Position;
-  header.Marker := ID3_HEADER_MARKER;
+  //  CurrPos := AStream.Position;
+  header.Marker  := ID3_HEADER_MARKER;
   Header.Version := Version;
   if Version >= TAG_VERSION_2_3 then
-     HeadSize:= 10
+    HeadSize := 10
   else
-    HeadSize:= 6;
+    HeadSize := 6;
   header.Flags := 0;
   tmpSize := 0;
 
@@ -356,13 +421,14 @@ begin
   Result := tmpSize + 10;
 end;
 
-function TID3Tags.ReadFromStream(AStream: TStream;ExtInfo:pointer=nil): boolean;
+function TID3Tags.ReadFromStream(AStream: TStream; ExtInfo: pointer = nil): boolean;
 var
   header: TID3Header;
-//  Transferred: DWord;
+  //  Transferred: DWord;
   Frame: TID3Frame;
   Image: TImageElement;
   Stop: boolean;
+  HeaderInfo: RHeaderInfo;
 begin
   Result := False;
   FromV1 := False;
@@ -381,9 +447,18 @@ begin
   if (Version in [TAG_VERSION_2_2..TAG_VERSION_2_4]) and (fTotalSize > 0) then
     while (AStream.Position < (fTotalSize + SizeOf(header))) and not stop do
     begin
-      Frame := TID3Frame.Create;
+      if not ReadTagHeader(AStream, HeaderInfo.ID, HeaderInfo.DataSize, HeaderInfo.Flags) then
+      begin
+        Stop := True;
+        Continue;
+      end;
+      if (HeaderInfo.ID = 'COMM') or (HeaderInfo.ID = 'COM') then
+        Frame := TID3FrameComment.Create
+      else
+        Frame := TID3Frame.Create;
+
       Frame.Tagger := self;
-      if Frame.ReadFromStream(AStream) then
+      if Frame.ReadFromStream(AStream, @HeaderInfo) then
       begin
         Add(Frame);
         if (Frame.ID = 'APIC') or (Frame.ID = 'PIC') then
@@ -401,7 +476,51 @@ begin
     end;
   Result := Count > 0;
   if Result then
-    fTotalSize := fTotalSize +SizeOf(header);
+    fTotalSize := fTotalSize + SizeOf(header);
+
+end;
+
+
+{ TID3Frame }
+
+function TID3FrameComment.GetAsString: string;
+var
+  Encoding: byte;
+  l: cardinal;
+  EmptyDescription: boolean;
+  Offset: integer;
+  WSize: integer;
+  p: PByteArray;
+begin
+  Result      := '';
+  Encoding    := byte(Data[1]);
+  EmptyDescription := False;
+  fLanguageID := copy(Data, 2, 3);
+
+  case Encoding of
+    00, 03:
+      Offset := 0;
+    01, 02:
+      Offset := 1;
+    else
+    begin
+      fLanguageID := '   ';
+      fDescription := '';
+      Result := '<unknown>';
+      exit;
+    end;
+  end;
+  p := PByteArray(@Data[5]);
+
+  WSize := 0;
+  while (WSize < (Size - 5)) and
+     not ((p^[WSize] = 00) and
+          (p^[WSize+offset] = 00)) do
+    Inc(WSize);
+
+  fDescription := ExtractString(Encoding, pbyte(p), Wsize+Offset);
+  Offset := (Offset *2) + 6 + WSize;
+  Result := ExtractString(Encoding, pbyte(@Data[Offset]), size - Offset + 1);
 
 end;
 
@@ -410,31 +529,31 @@ end;
 function TID3Frame.GetAsString: string;
 begin
   case
-     ID[1] of
-     'T', 'W' : Result := ExtractString(pbyte(@Data[1]), size);
-     'C' : Result :=      ExtractString(pbyte(@Data[1]), size, True);
-  else
-    Result := '<unknown>';
+    ID[1] of
+    'T', 'W':
+      Result := ExtractString(pbyte(@Data[1]), size);
+    else
+      Result := '<unknown>';
   end;
 end;
 
 
-procedure TID3Frame.SetAsString(Const AValue: string);
+procedure TID3Frame.SetAsString(const AValue: string);
 var
-  xValue: UTf8String;
-  wValue: UnicodeString;
-  NeedLanguage: Boolean;
-  LanguageOffset:integer;
+  xValue: utf8string;
+  wValue: unicodestring;
+  NeedLanguage: boolean;
+  LanguageOffset: integer;
 begin
   xValue := (AValue);
 
   NeedLanguage := copy(ID, 1, 3) = 'COM';
   if NeedLanguage then
-     LanguageOffset:= 3
+    LanguageOffset := 3
   else
-     LanguageOffset:= 0;
+    LanguageOffset := 0;
 
-  fSize := UTF8Length(xValue);
+  fSize := Length(xValue);
   if fSize = 0 then
   begin
     SetLength(Data, 0);
@@ -442,42 +561,39 @@ begin
   end;
 
   if TID3Tags(Tagger).Version >= TAG_VERSION_2_4 then
-     begin
-       inc(fSize,3 + LanguageOffset);
-       SetLength(Data, fSize);
-       Data[1] := #03;
-       if NeedLanguage then
-         begin
-           Data[2]:=#32;
-           Data[3]:=#32;
-           Data[4]:=#32;
-         end;
-       StrPCopy(@(Data[2+LanguageOffset]), xValue);
-       Data[fSize-1] := #00;
-       Data[fSize] := #00;
-     end
+  begin
+    Inc(fSize, 2 + LanguageOffset);
+    SetLength(Data, fSize);
+    Data[1] := #03;  // UTF-8
+    if NeedLanguage then
+    begin
+      Data[2] := #32;
+      Data[3] := #32;
+      Data[4] := #32;
+    end;
+    StrPCopy(@(Data[2 + LanguageOffset]), xValue);
+    Data[fSize] := #00;
+  end
   else
-     begin
-       wvalue := UTF8ToUTF16(xValue);
-       fSize:= Length(wValue) * sizeof( UnicodeChar ) + 5 + LanguageOffset;
-       SetLength(Data, fSize);
-       Data[1] := #01;
-       if NeedLanguage then
-         begin
-           Data[2]:=#32;
-           Data[3]:=#32;
-           Data[4]:=#32;
-         end;
+  begin
+    wvalue := UTF8ToUTF16(xValue);
+    fSize  := Length(wValue) * sizeof(unicodechar) + 5 + LanguageOffset;
+    SetLength(Data, fSize);
+    Data[1] := #01;  //UTF-16
+    if NeedLanguage then
+    begin
+      Data[2] := #32;
+      Data[3] := #32;
+      Data[4] := #32;
+    end;
 
-       Data[2+LanguageOffset] := #$FF;
-       Data[3+LanguageOffset] := #$FE;
+    Data[2 + LanguageOffset] := #$FF;
+    Data[3 + LanguageOffset] := #$FE;
 
-      Move(pbyte(wValue)^, pbyte(@Data[4+LanguageOffset])^, Length(wValue) * SizeOf(UnicodeChar));
-//       StrLCopy(@(Data[4+LanguageOffset]), pChar(wValue), Length(wValue) * SizeOf(WideChar));
-       Data[fSize-1] := #00;
-       Data[fSize] := #00;
-
-     end;
+    Move(pbyte(wValue)^, pbyte(@Data[4 + LanguageOffset])^, Length(wValue) * SizeOf(unicodechar));
+    Data[fSize - 1] := #00;
+    Data[fSize]     := #00;
+  end;
 
 end;
 
@@ -513,16 +629,13 @@ function TID3Frame.WriteToStream(AStream: TStream): DWord;
 var
   Header: TID3FrameHeader;
   HeaderOld: TID3FrameHeaderOld;
-//  tmpStr: PChar;
-//  tmpL: DWord;
-  DataSize : DWord;
-  headsize : DWord;
-
+  DataSize: DWord;
+  headsize: DWord;
 begin
   Result := 0;
 
   if fSize = 0 then
-     exit;
+    exit;
 
   if TID3Tags(Tagger).Version >= TAG_VERSION_2_3 then
   begin
@@ -532,59 +645,39 @@ begin
     else
       Header.Size := NtoBE(fSize);
     Header.Flags := fFlags;
-    headsize:= 10;
+    headsize := 10;
     AStream.Write(Header, headsize);
   end
   else
   begin
     HeaderOld.ID := ID;
-    DataSize := fSize;
+    DataSize     := fSize;
     HeaderOld.Size[0] := DataSize and $ff0000 shr 16;
     HeaderOld.Size[1] := DataSize and $00ff00 shr 8;
     HeaderOld.Size[2] := DataSize and $0000ff;
-    headsize:= 6;
+    headsize     := 6;
     AStream.Write(HeaderOld, headsize);
   end;
   AStream.Write(Data[1], fSize);
   Result := fSize + headsize;
 end;
 
-function TID3Frame.ReadFromStream(AStream: TStream;ExtInfo:pointer=nil): boolean;
+function TID3Frame.ReadFromStream(AStream: TStream; ExtInfo: pointer = nil): boolean;
 var
   Header: TID3FrameHeader;
   HeaderOld: TID3FrameHeaderOld;
   DataSize: Dword;
+  HeaderInfo: RHeaderInfo;
 begin
-  Result := False;
-  if TID3Tags(Tagger).Version < TAG_VERSION_2_3 then
-  begin
-    AStream.Read(HeaderOld, SizeOf(HeaderOld));
-    id := string(HeaderOld.ID);
-    fFlags := 0;
-    if not IsValid then
-      exit; // Corruption protection
-    DataSize := HeaderOld.Size[0] shl 16 + HeaderOld.Size[1] shl 8 + HeaderOld.Size[2];
-  end
-  else
-  begin
-    AStream.Read(Header, 10);
-    id := string(Header.ID);
-    if not IsValid then
-      exit; // Corruption protection
-    fFlags := Header.Flags;
-    if TID3Tags(Tagger).Version >= TAG_VERSION_2_4 then
-      DataSize := SyncSafe_Decode(Header.Size)
-    else
-      DataSize := {Swap32}BEToN(Header.Size);
-  end;
+  Result     := False;
+  HeaderInfo := RHeaderInfo(ExtInfo^);
+  SetLength(Data, HeaderInfo.DataSize + 1);
+  FillByte(Data[1], HeaderInfo.DataSize + 1, 0);
+  AStream.Read(Data[1], HeaderInfo.DataSize);
+  ID := HeaderInfo.ID;
 
-  if DataSize > TID3Tags(Tagger).size then
-    exit; // Corruption protection
-
-  SetLength(Data, DataSize + 1);
-  FillByte(Data[1], DataSize + 1, 0);
-  AStream.Read(Data[1], DataSize);
-  fSize := DataSize;
+  fSize  := HeaderInfo.DataSize;
   Result := True;
 end;
+
 end.

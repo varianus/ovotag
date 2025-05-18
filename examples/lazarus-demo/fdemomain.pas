@@ -133,6 +133,8 @@ begin
   CommonTags.Year := IntToStr(seYear.Value);
   CommonTags.Track := seTrack.Value;
   CommonTags.Comment := meComment.Lines.Text;
+  if CommonTags.Comment.EndsWith(#10) then
+     Delete(CommonTags.Comment, Length(CommonTags.Comment),1);
 end;
 
 procedure TForm1.TagsToMap;
