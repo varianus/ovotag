@@ -37,9 +37,9 @@ function priv_lazbuild
         case ${ID:?} in
             debian | ubuntu)
                 sudo apt-get update && sudo apt-get install libxml2-utils libdbus-glib-1-dev binutils-mingw-w64-x86-64 && sudo ln -s /usr/bin/x86_64-w64-mingw32-windres /usr/bin/windres
-                wget -nc https://downloads.sourceforge.net/project/lazarus/Lazarus%20Linux%20amd64%20DEB/Lazarus%203.8/lazarus-project_3.8.0-0_amd64.deb
-                wget -nc https://downloads.sourceforge.net/project/lazarus/Lazarus%20Linux%20amd64%20DEB/Lazarus%203.8/fpc-laz_3.2.2-210709_amd64.deb
-                wget -nc https://downloads.sourceforge.net/project/lazarus/Lazarus%20Linux%20amd64%20DEB/Lazarus%203.8/fpc-src_3.2.2-210709_amd64.deb
+                wget -nc https://netix.dl.sourceforge.net/project/lazarus/Lazarus%20Linux%20amd64%20DEB/Lazarus%204.0/lazarus-project_4.0.0-0_amd64.deb?viasf=1
+                wget -nc https://netix.dl.sourceforge.net/project/lazarus/Lazarus%20Linux%20amd64%20DEB/Lazarus%204.0/fpc-laz_3.2.2-210709_amd64.deb
+                wget -nc https://netix.dl.sourceforge.net/project/lazarus/Lazarus%20Linux%20amd64%20DEB/Lazarus%204.0/fpc-src_3.2.2-210709_amd64.deb
                 sudo apt install ./lazarus-project_2.2.2-0_amd64.deb ./fpc-laz_3.2.2-210709_amd64.deb ./fpc-src_3.2.2-210709_amd64.deb
                 ;;
         esac
