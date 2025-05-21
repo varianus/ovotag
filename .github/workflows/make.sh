@@ -100,6 +100,7 @@ function priv_lazbuild
 
 function priv_main
 (
+    set -x
     set -euo pipefail
     if ((${#})); then
         case ${1} in

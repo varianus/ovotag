@@ -36,7 +36,7 @@ jobs:
     - name: Build on Linux
       if: runner.os == 'Linux'
       shell: bash
-      run: bash .github/workflows/make.sh -x build
+      run: bash .github/workflows/make.sh build
 
     - name: Build on Windows
       if: runner.os == 'Windows'
