@@ -40,7 +40,7 @@ function priv_lazbuild
                 wget -nc https://netix.dl.sourceforge.net/project/lazarus/Lazarus%20Linux%20amd64%20DEB/Lazarus%204.0/lazarus-project_4.0.0-0_amd64.deb?viasf=1
                 wget -nc https://netix.dl.sourceforge.net/project/lazarus/Lazarus%20Linux%20amd64%20DEB/Lazarus%204.0/fpc-laz_3.2.2-210709_amd64.deb
                 wget -nc https://netix.dl.sourceforge.net/project/lazarus/Lazarus%20Linux%20amd64%20DEB/Lazarus%204.0/fpc-src_3.2.2-210709_amd64.deb
-                sudo apt install ./lazarus-project_2.2.2-0_amd64.deb ./fpc-laz_3.2.2-210709_amd64.deb ./fpc-src_3.2.2-210709_amd64.deb
+                sudo apt install ./lazarus-project_4.0.0-0_amd64.deb ./fpc-laz_3.2.2-210709_amd64.deb ./fpc-src_3.2.2-210709_amd64.deb
                 ;;
         esac
     fi &>/dev/null
