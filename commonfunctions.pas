@@ -32,12 +32,12 @@ const
 
 function ExtractTrack(const TrackString: string): word;
 
-function ExtractString(p: pbyte; size: cardinal; LanguageID: boolean = False): string;  overload;
+function ExtractString(p: pbyte; size: cardinal): string;  overload;
 function ExtractString(Encoding: byte; p: pbyte; size: cardinal): string; overload;
 
-function ExtractString_ANSI(p: pbyte; size: cardinal; LanguageID: boolean = False): string;
-function ExtractString_UTF8(p: pbyte; size: cardinal; LanguageID: boolean = False): string;
-function ExtractString_UTF16(p: pbyte; size: cardinal; LanguageID: boolean = False): string;
+function ExtractString_ANSI(p: pbyte; size: cardinal): string;
+function ExtractString_UTF8(p: pbyte; size: cardinal): string;
+function ExtractString_UTF16(p: pbyte; size: cardinal): string;
 
 
 procedure FixTrack(const TrackString: string; const TrackNr: integer; out TrackStringFixed: string;
@@ -207,7 +207,7 @@ begin
   end;
 end;
 
-function ExtractString(p: pbyte; size: cardinal; LanguageID: boolean = False): string;
+function ExtractString(p: pbyte; size: cardinal): string;
 var
   Encoding: byte;
 begin
@@ -228,11 +228,11 @@ begin
   Result := '';
   case Encoding of
     0:
-      Result := ExtractString_ANSI(p, size, false);
+      Result := ExtractString_ANSI(p, size);
     1, 2:
-      Result := ExtractString_UTF16(p, size, false);
+      Result := ExtractString_UTF16(p, size);
     3:
-      Result := ExtractString_UTF8(p, size, false);
+      Result := ExtractString_UTF8(p, size);
   end;
 
   l := length(Result);
@@ -242,108 +242,27 @@ begin
 end;
 
 
-function ExtractString_ANSI(p: pbyte; size: cardinal; LanguageID: boolean = False): string;
-var
-  l: cardinal;
+function ExtractString_ANSI(p: pbyte; size: cardinal): string;
 begin
-  if LanguageID then
-  begin
-    l := size - 3;
-    Inc(p, 3);
-    if p^ = 0 then
-    begin
-      Dec(l);
-      Inc(p);
-    end
-    else
-      while (l < size) and (pbyte(p)^ <> 0) do
-      begin
-        Dec(l);
-        Inc(p);
-      end;
-  end;
-
   Result := ISO_8859_1ToUTF8(pansichar(p));
-
 end;
 
-function ExtractString_UTF8(p: pbyte; size: cardinal; LanguageID: boolean = False): string;
+function ExtractString_UTF8(p: pbyte; size: cardinal): string;
 var
   l: cardinal;
 begin
   l := size;
-  if LanguageID then
-  begin
-    Inc(p, 3);
-    if p^ = 0 then
-    begin
-      Dec(l);
-      Inc(p);
-    end
-    else
-    begin
-      while (l < size) and (pbyte(p)^ <> 0) do
-      begin
-        Inc(p);
-        Dec(l);
-      end;
-    end;
-  end;
-
   Result := (copy(PChar(p), 1, l));
 end;
 
-function ExtractString_UTF16(p: pbyte; size: cardinal; LanguageID: boolean = False): string;
+function ExtractString_UTF16(p: pbyte; size: cardinal): string;
 var
   l, i: cardinal;
-  OldP: pbyte;
-  oldL: cardinal;
   be: boolean;
   ws: widestring = '';
 begin
   size := size and $fffffffe;
   l    := size;
-  if LanguageID then
-  begin
-    if ((pword(p)^ = $feff) or (pword(p)^ = $fffe)) then   // corruption protection
-    begin
-      Inc(p, 8);
-      Dec(l, 8);
-    end
-    else
-    begin
-      Inc(p, 3);
-      Dec(l, 3);
-    end;
-
-    if ((pword(p)^ = $feff) or (pword(p)^ = $fffe)) and  // empty description
-      (pword(p + 2)^ = 0) then
-    begin
-      Inc(p, 4);
-      Dec(l, 4);
-    end
-    else
-    begin
-      OldP := p;   // save current position for corrupted description
-      OldL := L;
-      while (l >= 2) and (pword(p)^ <> 0) do
-      begin
-        Dec(l, 2);
-        Inc(p, 2);
-      end;
-      if l >= 2 then
-      begin
-        Dec(l, 2);
-        Inc(p, 2);
-      end
-      else
-      begin
-        p := OldP;  // missing description, restore search position
-        L := OldL;
-      end;
-    end;
-  end;
-
   if l = 0 then
     be := False
   else

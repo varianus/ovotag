@@ -67,6 +67,7 @@ type
     fDescription: string;
   public
     function GetAsString: string; override;
+    procedure SetAsString(const AValue: string); override;
   end;
 
   { TID3Tags }
@@ -487,14 +488,12 @@ function TID3FrameComment.GetAsString: string;
 var
   Encoding: byte;
   l: cardinal;
-  EmptyDescription: boolean;
   Offset: integer;
   WSize: integer;
   p: PByteArray;
 begin
   Result      := '';
   Encoding    := byte(Data[1]);
-  EmptyDescription := False;
   fLanguageID := copy(Data, 2, 3);
 
   case Encoding of
@@ -519,8 +518,77 @@ begin
     Inc(WSize);
 
   fDescription := ExtractString(Encoding, pbyte(p), Wsize+Offset);
-  Offset := (Offset *2) + 6 + WSize;
-  Result := ExtractString(Encoding, pbyte(@Data[Offset]), size - Offset + 1);
+  if WSize >= (size - 5) then // if there is only a string use it as the real comment
+    begin
+      Result := fDescription;
+      fDescription := '';
+    end
+  else
+    begin
+      Offset := (Offset *2) + 6 + WSize;
+      Result := ExtractString(Encoding, pbyte(@Data[Offset]), size - Offset + 1);
+    end;
+
+end;
+
+procedure TID3FrameComment.SetAsString(const AValue: string);
+var
+  UTF8_Value: utf8string;
+  UTF16_Value: unicodestring;
+  UTF16_Description: unicodestring;
+  LanguageOffset: integer;
+  DescriptionLength: integer;
+begin
+  UTF8_Value := (AValue);
+  LanguageOffset := 3;
+
+  fSize := Length(UTF8_Value) +1;
+
+  if fSize = 0 then
+  begin
+    SetLength(Data, 0);
+    exit;
+  end;
+
+  if TID3Tags(Tagger).Version >= TAG_VERSION_2_4 then
+  begin
+    Inc(fSize, 1 + LanguageOffset);
+    DescriptionLength:=Length(fDescription) +1;
+    inc(fSize, DescriptionLength);
+
+    SetLength(Data, fSize);
+    Data[1] := #03;  // UTF-8
+    Data[2] := fLanguageID[1];
+    Data[3] := fLanguageID[2];
+    Data[4] := fLanguageID[3];
+    StrPCopy(@(Data[2 + LanguageOffset]), fDescription);
+    Data[DescriptionLength] := #00;
+    StrPCopy(@(Data[2 + LanguageOffset+DescriptionLength]), UTF8_Value);
+    Data[fsize] := #00;
+  end
+  else
+  begin
+    UTF16_Value := UTF8ToUTF16(UTF8_Value);
+    UTF16_Description := UTF8ToUTF16(fDescription);
+    DescriptionLength := Length(UTF16_Description);
+    fSize  := Length(UTF16_Value) * sizeof(unicodechar) + 5 + LanguageOffset + DescriptionLength * sizeof(unicodechar) +2 ;
+    SetLength(Data, fSize);
+    Data[1] := #01;  //UTF-16
+    Data[2] := fLanguageID[1];
+    Data[3] := fLanguageID[2];
+    Data[4] := fLanguageID[3];
+
+    Data[2 + LanguageOffset] := #$FF;
+    Data[3 + LanguageOffset] := #$FE;
+
+    Move(pbyte(UTF16_Description)^, pbyte(@Data[4 + LanguageOffset])^, DescriptionLength * SizeOf(unicodechar));
+    Data[DescriptionLength - 1] := #00;
+    Data[DescriptionLength]     := #00;
+
+    Move(pbyte(UTF16_Value)^, pbyte(@Data[4 + LanguageOffset+DescriptionLength])^, Length(UTF16_Value) * SizeOf(unicodechar));
+    Data[fSize - 1] := #00;
+    Data[fSize]     := #00;
+  end;
 
 end;
 
@@ -542,16 +610,8 @@ procedure TID3Frame.SetAsString(const AValue: string);
 var
   xValue: utf8string;
   wValue: unicodestring;
-  NeedLanguage: boolean;
-  LanguageOffset: integer;
 begin
   xValue := (AValue);
-
-  NeedLanguage := copy(ID, 1, 3) = 'COM';
-  if NeedLanguage then
-    LanguageOffset := 3
-  else
-    LanguageOffset := 0;
 
   fSize := Length(xValue);
   if fSize = 0 then
@@ -562,35 +622,22 @@ begin
 
   if TID3Tags(Tagger).Version >= TAG_VERSION_2_4 then
   begin
-    Inc(fSize, 2 + LanguageOffset);
+    Inc(fSize, 2);
     SetLength(Data, fSize);
     Data[1] := #03;  // UTF-8
-    if NeedLanguage then
-    begin
-      Data[2] := #32;
-      Data[3] := #32;
-      Data[4] := #32;
-    end;
-    StrPCopy(@(Data[2 + LanguageOffset]), xValue);
+    StrPCopy(@(Data[2]), xValue);
     Data[fSize] := #00;
   end
   else
   begin
     wvalue := UTF8ToUTF16(xValue);
-    fSize  := Length(wValue) * sizeof(unicodechar) + 5 + LanguageOffset;
+    fSize  := Length(wValue) * sizeof(unicodechar) + 5;
     SetLength(Data, fSize);
     Data[1] := #01;  //UTF-16
-    if NeedLanguage then
-    begin
-      Data[2] := #32;
-      Data[3] := #32;
-      Data[4] := #32;
-    end;
+    Data[2] := #$FF;
+    Data[3] := #$FE;
 
-    Data[2 + LanguageOffset] := #$FF;
-    Data[3 + LanguageOffset] := #$FE;
-
-    Move(pbyte(wValue)^, pbyte(@Data[4 + LanguageOffset])^, Length(wValue) * SizeOf(unicodechar));
+    Move(pbyte(wValue)^, pbyte(@Data[4])^, Length(wValue) * SizeOf(unicodechar));
     Data[fSize - 1] := #00;
     Data[fSize]     := #00;
   end;
@@ -664,9 +711,6 @@ end;
 
 function TID3Frame.ReadFromStream(AStream: TStream; ExtInfo: pointer = nil): boolean;
 var
-  Header: TID3FrameHeader;
-  HeaderOld: TID3FrameHeaderOld;
-  DataSize: Dword;
   HeaderInfo: RHeaderInfo;
 begin
   Result     := False;
