@@ -412,14 +412,14 @@ begin
     tmpSize := tmpSize + Frames[i].Size + HeadSize;
   end;
 
-  header.size := SyncSafe_Encode(TmpSize);
+  header.size := SyncSafe_Encode(TmpSize - HeadSize);
   Astream.Write(header, SizeOf(header));
 
   for i := 0 to Count - 1 do
   begin
     Frames[i].WriteToStream(AStream);
   end;
-  Result := tmpSize + 10;
+  Result := tmpSize;
 end;
 
 function TID3Tags.ReadFromStream(AStream: TStream; ExtInfo: pointer = nil): boolean;
@@ -562,7 +562,7 @@ begin
     Data[3] := fLanguageID[2];
     Data[4] := fLanguageID[3];
     StrPCopy(@(Data[2 + LanguageOffset]), fDescription);
-    Data[DescriptionLength] := #00;
+    Data[2 + LanguageOffset + DescriptionLength] := #00;
     StrPCopy(@(Data[2 + LanguageOffset+DescriptionLength]), UTF8_Value);
     Data[fsize] := #00;
   end
