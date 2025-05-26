@@ -542,7 +542,7 @@ begin
   UTF8_Value := (AValue);
   LanguageOffset := 3;
 
-  fSize := Length(UTF8_Value) +1;
+  fSize := Length(UTF8_Value) ;
 
   if fSize = 0 then
   begin
@@ -564,14 +564,14 @@ begin
     StrPCopy(@(Data[2 + LanguageOffset]), fDescription);
     Data[2 + LanguageOffset + DescriptionLength] := #00;
     StrPCopy(@(Data[2 + LanguageOffset+DescriptionLength]), UTF8_Value);
-    Data[fsize] := #00;
+ //   Data[fsize] := #00;
   end
   else
   begin
     UTF16_Value := UTF8ToUTF16(UTF8_Value);
     UTF16_Description := UTF8ToUTF16(fDescription);
     DescriptionLength := Length(UTF16_Description);
-    fSize  := Length(UTF16_Value) * sizeof(unicodechar) + 5 + LanguageOffset + DescriptionLength * sizeof(unicodechar) +2 ;
+    fSize  := Length(UTF16_Value) * sizeof(unicodechar) + 5 + LanguageOffset + DescriptionLength * sizeof(unicodechar) ;
     SetLength(Data, fSize);
     Data[1] := #01;  //UTF-16
     Data[2] := fLanguageID[1];
@@ -586,8 +586,8 @@ begin
     Data[DescriptionLength]     := #00;
 
     Move(pbyte(UTF16_Value)^, pbyte(@Data[4 + LanguageOffset+DescriptionLength])^, Length(UTF16_Value) * SizeOf(unicodechar));
-    Data[fSize - 1] := #00;
-    Data[fSize]     := #00;
+//    Data[fSize - 1] := #00;
+//    Data[fSize]     := #00;
   end;
 
 end;
@@ -622,24 +622,24 @@ begin
 
   if TID3Tags(Tagger).Version >= TAG_VERSION_2_4 then
   begin
-    Inc(fSize, 2);
+    Inc(fSize, 1);
     SetLength(Data, fSize);
     Data[1] := #03;  // UTF-8
     StrPCopy(@(Data[2]), xValue);
-    Data[fSize] := #00;
+//    Data[fSize] := #00;
   end
   else
   begin
     wvalue := UTF8ToUTF16(xValue);
-    fSize  := Length(wValue) * sizeof(unicodechar) + 5;
+    fSize  := Length(wValue) * sizeof(unicodechar) + 3;
     SetLength(Data, fSize);
     Data[1] := #01;  //UTF-16
     Data[2] := #$FF;
     Data[3] := #$FE;
 
     Move(pbyte(wValue)^, pbyte(@Data[4])^, Length(wValue) * SizeOf(unicodechar));
-    Data[fSize - 1] := #00;
-    Data[fSize]     := #00;
+//    Data[fSize - 1] := #00;
+//    Data[fSize]     := #00;
   end;
 
 end;
