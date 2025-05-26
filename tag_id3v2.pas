@@ -68,6 +68,7 @@ type
   public
     function GetAsString: string; override;
     procedure SetAsString(const AValue: string); override;
+    constructor Create(AID: String); override; overload;
   end;
 
   { TID3Tags }
@@ -590,6 +591,13 @@ begin
 //    Data[fSize]     := #00;
   end;
 
+end;
+
+constructor TID3FrameComment.Create(AID: String);
+begin
+  inherited Create(ID);
+  fDescription := '';
+  fLanguageID := '   ';
 end;
 
 { TID3Frame }
