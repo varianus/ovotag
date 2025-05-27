@@ -39,8 +39,6 @@ type
     Genre: byte;
   end;
 
-  TID3Tags = class;
-
   { TID3Frame }
 
   TID3Frame = class(TFrameElement)
@@ -339,7 +337,7 @@ begin
   SetFrameValue(ID3V2_KNOWNFRAME[13, UseOldTag], CommonTags.Year, TID3Frame);
   SetFrameValue(ID3V2_KNOWNFRAME[18, UseOldTag], CommonTags.AlbumArtist, TID3Frame);
   SetFrameValue(ID3V2_KNOWNFRAME[4, UseOldTag], CommonTags.TrackString, TID3Frame);
-  SetFrameValue(ID3V2_KNOWNFRAME[7, UseOldTag], CommonTags.Comment, TID3Frame);
+  SetFrameValue(ID3V2_KNOWNFRAME[7, UseOldTag], CommonTags.Comment, TID3FrameComment);
   SetFrameValue(ID3V2_KNOWNFRAME[6, UseOldTag], CommonTags.Genre, TID3Frame);
 
 end;
