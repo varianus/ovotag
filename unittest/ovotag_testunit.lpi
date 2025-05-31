@@ -54,6 +54,35 @@
         <Filename Value="testflac.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit>
+      <Unit>
+        <Filename Value="testogg.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="testmp4.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="testMp4"/>
+      </Unit>
+      <Unit>
+        <Filename Value="testopus.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="testOpus"/>
+      </Unit>
+      <Unit>
+        <Filename Value="testmonkey.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="testMonkey"/>
+      </Unit>
+      <Unit>
+        <Filename Value="testwav.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="testWav"/>
+      </Unit>
+      <Unit>
+        <Filename Value="testaac.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="testAAc"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -86,6 +115,9 @@
       </Item>
       <Item>
         <Name Value="EFOpenError"/>
+      </Item>
+      <Item>
+        <Name Value="EAssertionFailedError"/>
       </Item>
     </Exceptions>
   </Debugging>

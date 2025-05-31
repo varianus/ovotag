@@ -172,6 +172,7 @@ type
   public
     Property FileName : string Read FFileName;
     property Tags: TTags read GetTags;
+    Property Duration:int64 read GetDuration;
     Property MediaProperty: TMediaProperty read DumpInfo;
   end;
 

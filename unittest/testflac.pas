@@ -25,7 +25,7 @@ implementation
 
 function TFlacTestSetup.GetFileName: string;
 begin
-  Result := '../examples/demosound/sample-flac.flac';
+  Result := TEST_PATH+'sample-flac.flac';
 end;
 
 function TFlacTestSetup.GetClass: TTagReaderClass;

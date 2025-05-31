@@ -26,7 +26,7 @@ implementation
 
 function TMp3TestSetupv23.GetFileName: string;
 begin
-  Result := '../examples/demosound/sample-mp3-v2.3.mp3';
+  Result := TEST_PATH+'sample-mp3-v2.3.mp3';
 end;
 
 function TMp3TestSetupv23.GetClass: TTagReaderClass;
