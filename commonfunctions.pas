@@ -37,7 +37,7 @@ function ExtractString(Encoding: byte; p: pbyte; size: cardinal): string; overlo
 
 function ExtractString_ANSI(p: pbyte; size: cardinal): string;
 function ExtractString_UTF8(p: pbyte; size: cardinal): string;
-function ExtractString_UTF16(p: pbyte; size: cardinal): string;
+function ExtractString_UTF16(p: pbyte; size: cardinal; Encoding: byte): string;
 
 
 procedure FixTrack(const TrackString: string; const TrackNr: integer; out TrackStringFixed: string;
@@ -230,7 +230,7 @@ begin
     0:
       Result := ExtractString_ANSI(p, size);
     1, 2:
-      Result := ExtractString_UTF16(p, size);
+      Result := ExtractString_UTF16(p, size, Encoding);
     3:
       Result := ExtractString_UTF8(p, size);
   end;
@@ -255,7 +255,7 @@ begin
   Result := (copy(PChar(p), 1, l));
 end;
 
-function ExtractString_UTF16(p: pbyte; size: cardinal): string;
+function ExtractString_UTF16(p: pbyte; size: cardinal; Encoding:byte): string;
 var
   l, i: cardinal;
   be: boolean;
@@ -281,7 +281,7 @@ begin
       Dec(l, 2);
     end
     else
-      be := p^ = 2;
+      be := Encoding = 2;
   end;
 
   L := ((L + 1) div 2) * 2;     // Ensure an even number of byte if
