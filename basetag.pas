@@ -420,7 +420,7 @@ begin
   fid:= -1;
   for i:=0 to FramesList.Count -1 do
     begin
-      if  AnsiCompareText(TFrameElement(FramesList[i]).id, id) = 0 then
+      if AnsiCompareText(TFrameElement(FramesList[i]).id, id) = 0 then
          begin
            fid:=i;
            break;

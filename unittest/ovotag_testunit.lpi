@@ -83,6 +83,11 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="testAAc"/>
       </Unit>
+      <Unit>
+        <Filename Value="testwma.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="testWma"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

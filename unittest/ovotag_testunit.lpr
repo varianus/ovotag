@@ -4,7 +4,7 @@ program ovotag_testunit;
 
 uses
   Interfaces, Forms, GuiTestRunner, testreader, testmp3_v24, testmp3_v23,
-  testflac, testogg, testMp4, testOpus, testMonkey, testWav, testAAc;
+  testflac, testogg, testMp4, testOpus, testMonkey, testWav, testAAc, testWma;
 
 {$R *.res}
 
