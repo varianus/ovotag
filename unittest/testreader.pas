@@ -77,37 +77,38 @@ end;
 procedure TAudioFileTest.TestDuration;
 begin
   // need better handling, just to avoid really wrong calculation
-  AssertEquals( trunc(Tags.Duration/1000), 4);
+  AssertEquals(4, trunc(Tags.Duration/1000));
 end;
 
 procedure TReaderTest.TestTitle;
 begin
-  AssertEquals(Tags.GetCommonTags.Title, '° sample-track °');
+ Writeln('->',Tags.GetCommonTags.Title,'<-');
+  AssertEquals('° sample-track °',Tags.GetCommonTags.Title);
 end;
 
 procedure TReaderTest.TestArtist;
 begin
-  AssertEquals(Tags.GetCommonTags.Artist, 'à Artist à');
+  AssertEquals('à Artist à',Tags.GetCommonTags.Artist);
 end;
 
 procedure TReaderTest.TestAlbum;
 begin
-  AssertEquals(Tags.GetCommonTags.Album, 'é Album è');
+  AssertEquals('é Album è',Tags.GetCommonTags.Album);
 end;
 
 procedure TReaderTest.TestYear;
 begin
-  AssertEquals(Tags.GetCommonTags.Year,'2025');
+  AssertEquals('2025',Tags.GetCommonTags.Year);
 end;
 
 procedure TReaderTest.TestGenre;
 begin
-  AssertEquals(tags.GetCommonTags.Genre, 'Classical');
+  AssertEquals('Classical',tags.GetCommonTags.Genre);
 end;
 
 procedure TReaderTest.TestComment;
 begin
-  AssertEquals(Tags.GetCommonTags.Comment,'à Commento ò');
+  AssertEquals('à Commento ò',Tags.GetCommonTags.Comment);
 end;
 
 
