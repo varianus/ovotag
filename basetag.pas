@@ -540,14 +540,14 @@ var
   Element : TFrameElement;
 begin
   Element := FramesByID[ID];
-  if Element = nil then
+  if (Element = nil) and (Value <> '') then
      begin
        Element := FrameClass.Create(ID);
        Element.Tagger:=self;
        Add(Element);
      end;
-
-  Element.AsString := Value;
+  if Assigned(Element) then
+    Element.AsString := Value;
 end;
 
 
