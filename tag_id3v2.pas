@@ -23,7 +23,7 @@ unit tag_id3v2;
 interface
 
 uses
-  Classes, SysUtils, basetag;
+  Classes, SysUtils, basetag, LConvEncoding;
 
 type
 
@@ -66,7 +66,7 @@ type
   public
     function GetAsString: string; override;
     procedure SetAsString(const AValue: string); override;
-    constructor Create(AID: String); override; overload;
+    constructor Create(AID: string); override; overload;
   end;
 
   { TID3Tags }
@@ -181,7 +181,7 @@ begin
     Frame := TID3Frame.Create('TPE1');
     Frame.Tagger := Self;
     frame.fFlags := 0;
-    Frame.AsString := trim(V1Rec.Artist);
+    Frame.AsString := ISO_8859_1ToUTF8(trim(V1Rec.Artist));
     Add(Frame);
   end;
 
@@ -190,7 +190,7 @@ begin
     Frame := TID3Frame.Create('TALB');
     Frame.Tagger := Self;
     frame.fFlags := 0;
-    Frame.AsString := trim(V1Rec.Album);
+    Frame.AsString := ISO_8859_1ToUTF8(trim(V1Rec.Album));
     Add(Frame);
   end;
 
@@ -199,16 +199,16 @@ begin
     Frame := TID3Frame.Create('TIT2');
     Frame.Tagger := Self;
     frame.fFlags := 0;
-    Frame.AsString := trim(V1Rec.Title);
+    Frame.AsString := ISO_8859_1ToUTF8(trim(V1Rec.Title));
     Add(Frame);
   end;
 
   if trim(V1Rec.Year) <> '' then
   begin
-    Frame := TID3Frame.Create('TDRC');
+    Frame := TID3Frame.Create('TYER');
     Frame.Tagger := Self;
     frame.fFlags := 0;
-    Frame.AsString := trim(V1Rec.Year);
+    Frame.AsString := ISO_8859_1ToUTF8(trim(V1Rec.Year));
     Add(Frame);
   end;
 
@@ -217,7 +217,7 @@ begin
     Frame := TID3Frame.Create('TCON');
     Frame.Tagger := Self;
     frame.fFlags := 0;
-    Frame.AsString := v1Genres[V1Rec.Genre];
+    Frame.AsString := ISO_8859_1ToUTF8(v1Genres[V1Rec.Genre]);
     Add(Frame);
   end;
 
@@ -225,17 +225,17 @@ begin
   begin
     if trim(V1Rec.Comment) <> '' then
     begin
-      Frame := TID3Frame.Create('COMM');
+      Frame := TID3FrameComment.Create('COMM');
       Frame.Tagger := Self;
       frame.fFlags := 0;
-      Frame.AsString := trim(V1Rec.Comment);
+      Frame.AsString := ISO_8859_1ToUTF8(trim(V1Rec.Comment));
       Add(Frame);
     end;
 
     Frame := TID3Frame.Create('TRCK');
     Frame.Tagger := Self;
     frame.fFlags := 0;
-    Frame.AsString := IntToStr(v1rec.track);
+    Frame.AsString := ISO_8859_1ToUTF8(IntToStr(v1rec.track));
     Add(Frame);
 
   end
@@ -309,13 +309,14 @@ begin
   Result := inherited GetCommonTags;
   UseOldTag := (Version <= TAG_VERSION_2_2) and not FromV1;
 
-  Result.Artist   := GetBestMatch(2, 14, UseOldTag);
-  Result.Title    := GetBestMatch(1, 15, UseOldTag);
-  Result.Album    := GetBestMatch(3, 16, UseOldTag);
-  Result.Year     := GetBestMatch(13, 5, UseOldTag);
+  Result.Artist := GetBestMatch(2, 14, UseOldTag);
+  Result.Title  := GetBestMatch(1, 15, UseOldTag);
+  Result.Album  := GetBestMatch(3, 16, UseOldTag);
+  Result.Year   := GetBestMatch(13, 5, UseOldTag);
   Result.AlbumArtist := GetContent(GetFrameValue(ID3V2_KNOWNFRAME[18, UseOldTag]), Result.Artist);
-  Result.Track    := ExtractTrack(GetFrameValue(ID3V2_KNOWNFRAME[4, UseOldTag]));
+  Result.Track  := ExtractTrack(GetFrameValue(ID3V2_KNOWNFRAME[4, UseOldTag]));
   Result.TrackString := GetFrameValue(ID3V2_KNOWNFRAME[4, UseOldTag]);
+
   Result.Comment  := GetFrameValue(ID3V2_KNOWNFRAME[7, UseOldTag]);
   Result.Genre    := ExtractGenre(GetFrameValue(ID3V2_KNOWNFRAME[6, UseOldTag]));
   Result.HasImage := ImageCount > 0;
@@ -334,7 +335,13 @@ begin
   SetFrameValue(ID3V2_KNOWNFRAME[2, UseOldTag], CommonTags.Artist, TID3Frame);
   SetFrameValue(ID3V2_KNOWNFRAME[1, UseOldTag], CommonTags.Title, TID3Frame);
   SetFrameValue(ID3V2_KNOWNFRAME[3, UseOldTag], CommonTags.Album, TID3Frame);
-  SetFrameValue(ID3V2_KNOWNFRAME[13, UseOldTag], CommonTags.Year, TID3Frame);
+
+  // Use TYER insted of TRDC inf its only 4 chars,
+  if (CommonTags.Year.Length = 4) and isValidYear(CommonTags.Year) then
+     SetFrameValue(ID3V2_KNOWNFRAME[5, UseOldTag], CommonTags.Year, TID3Frame)
+  else
+    SetFrameValue(ID3V2_KNOWNFRAME[13, UseOldTag], CommonTags.Year, TID3Frame);
+
   SetFrameValue(ID3V2_KNOWNFRAME[18, UseOldTag], CommonTags.AlbumArtist, TID3Frame);
   SetFrameValue(ID3V2_KNOWNFRAME[4, UseOldTag], CommonTags.TrackString, TID3Frame);
   SetFrameValue(ID3V2_KNOWNFRAME[7, UseOldTag], CommonTags.Comment, TID3FrameComment);
@@ -411,7 +418,7 @@ begin
     tmpSize := tmpSize + Frames[i].Size + HeadSize;
   end;
 
-  header.size := SyncSafe_Encode(TmpSize - HeadSize);
+  header.size := SyncSafe_Encode(TmpSize);// - HeadSize);
   Astream.Write(header, SizeOf(header));
 
   for i := 0 to Count - 1 do
@@ -512,21 +519,21 @@ begin
 
   WSize := 0;
   while (WSize < (Size - 5)) and
-     not ((p^[WSize] = 00) and
-          (p^[WSize+offset] = 00)) do
+    not ((p^[WSize] = 00) and
+      (p^[WSize + offset] = 00)) do
     Inc(WSize);
 
-  fDescription := ExtractString(Encoding, pbyte(p), Wsize+Offset);
+  fDescription := ExtractString(Encoding, pbyte(p), Wsize + Offset);
   if WSize >= (size - 5) then // if there is only a string use it as the real comment
-    begin
-      Result := fDescription;
-      fDescription := '';
-    end
+  begin
+    Result := fDescription;
+    fDescription := '';
+  end
   else
-    begin
-      Offset := (Offset *2) + 6 + WSize;
-      Result := ExtractString(Encoding, pbyte(@Data[Offset]), size - Offset + 1);
-    end;
+  begin
+    Offset := (Offset * 2) + 6 + WSize;
+    Result := ExtractString(Encoding, pbyte(@Data[Offset]), size - Offset + 1);
+  end;
 
 end;
 
@@ -536,12 +543,12 @@ var
   UTF16_Value: unicodestring;
   UTF16_Description: unicodestring;
   LanguageOffset: integer;
-  DescriptionLength: integer;
+  DescriptionLength, Offset: integer;
 begin
-  UTF8_Value := (AValue);
+  UTF8_Value     := (AValue);
   LanguageOffset := 3;
 
-  fSize := Length(UTF8_Value) ;
+  fSize := Length(UTF8_Value);
 
   if fSize = 0 then
   begin
@@ -552,8 +559,8 @@ begin
   if TID3Tags(Tagger).Version >= TAG_VERSION_2_4 then
   begin
     Inc(fSize, 1 + LanguageOffset);
-    DescriptionLength:=Length(fDescription) +1;
-    inc(fSize, DescriptionLength);
+    DescriptionLength := Length(fDescription) + 1;
+    Inc(fSize, DescriptionLength);
 
     SetLength(Data, fSize);
     Data[1] := #03;  // UTF-8
@@ -562,40 +569,48 @@ begin
     Data[4] := fLanguageID[3];
     StrPCopy(@(Data[2 + LanguageOffset]), fDescription);
     Data[2 + LanguageOffset + DescriptionLength] := #00;
-    StrPCopy(@(Data[2 + LanguageOffset+DescriptionLength]), UTF8_Value);
- //   Data[fsize] := #00;
+    StrPCopy(@(Data[2 + LanguageOffset + DescriptionLength]), UTF8_Value);
+    //   Data[fsize] := #00;
   end
   else
   begin
     UTF16_Value := UTF8ToUTF16(UTF8_Value);
     UTF16_Description := UTF8ToUTF16(fDescription);
     DescriptionLength := Length(UTF16_Description);
-    fSize  := Length(UTF16_Value) * sizeof(unicodechar) + 5 + LanguageOffset + DescriptionLength * sizeof(unicodechar) ;
+    fSize := Length(UTF16_Value) * sizeof(unicodechar) +
+      7 + // 1 for encoding, 2 for description BOM, 2 for description teminator, 2 for value BOM
+      LanguageOffset + DescriptionLength * sizeof(unicodechar);
     SetLength(Data, fSize);
     Data[1] := #01;  //UTF-16
     Data[2] := fLanguageID[1];
     Data[3] := fLanguageID[2];
     Data[4] := fLanguageID[3];
+    Offset  := 4;
 
-    Data[2 + LanguageOffset] := #$FF;
-    Data[3 + LanguageOffset] := #$FE;
+    Data[Offset + 1] := #$FF;
+    Data[Offset + 2] := #$FE;
+    Inc(offset, 2);
 
-    Move(pbyte(UTF16_Description)^, pbyte(@Data[4 + LanguageOffset])^, DescriptionLength * SizeOf(unicodechar));
-    Data[DescriptionLength - 1] := #00;
-    Data[DescriptionLength]     := #00;
-
-    Move(pbyte(UTF16_Value)^, pbyte(@Data[4 + LanguageOffset+DescriptionLength])^, Length(UTF16_Value) * SizeOf(unicodechar));
-//    Data[fSize - 1] := #00;
-//    Data[fSize]     := #00;
+    Move(pbyte(UTF16_Description)^, pbyte(@Data[Offset + 1])^, DescriptionLength * SizeOf(unicodechar));
+    Inc(offset, DescriptionLength * SizeOf(unicodechar));
+    Data[Offset + 1] := #00;
+    Data[Offset + 2] := #00;
+    Inc(offset, 2);
+    Data[Offset + 1] := #$FF;
+    Data[Offset + 2] := #$FE;
+    Inc(offset, 2);
+    Move(pbyte(UTF16_Value)^, pbyte(@Data[Offset + 1])^, Length(UTF16_Value) * SizeOf(unicodechar));
+    //    Data[fSize - 1] := #00;
+    //    Data[fSize]     := #00;
   end;
 
 end;
 
-constructor TID3FrameComment.Create(AID: String);
+constructor TID3FrameComment.Create(AID: string);
 begin
-  inherited Create(ID);
-  fDescription := '';
-  fLanguageID := '   ';
+  inherited Create(AID);
+  fDescription := 'PIPPO';
+  fLanguageID  := '   ';
 end;
 
 { TID3Frame }
@@ -632,7 +647,7 @@ begin
     SetLength(Data, fSize);
     Data[1] := #03;  // UTF-8
     StrPCopy(@(Data[2]), xValue);
-//    Data[fSize] := #00;
+    //    Data[fSize] := #00;
   end
   else
   begin
@@ -644,8 +659,8 @@ begin
     Data[3] := #$FE;
 
     Move(pbyte(wValue)^, pbyte(@Data[4])^, Length(wValue) * SizeOf(unicodechar));
-//    Data[fSize - 1] := #00;
-//    Data[fSize]     := #00;
+    //    Data[fSize - 1] := #00;
+    //    Data[fSize]     := #00;
   end;
 
 end;
