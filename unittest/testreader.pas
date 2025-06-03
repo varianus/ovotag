@@ -82,7 +82,6 @@ end;
 
 procedure TReaderTest.TestTitle;
 begin
- Writeln('->',Tags.GetCommonTags.Title,'<-');
   AssertEquals('° sample-track °',Tags.GetCommonTags.Title);
 end;
 
