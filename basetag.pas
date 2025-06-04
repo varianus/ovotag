@@ -172,6 +172,7 @@ type
   public
     Property FileName : string Read FFileName;
     property Tags: TTags read GetTags;
+    Property Duration:int64 read GetDuration;
     Property MediaProperty: TMediaProperty read DumpInfo;
   end;
 
@@ -325,7 +326,8 @@ end;
 
 constructor TTagReader.Create(FileName: TfileName);
 begin
-//  Create;
+ FFileName := FileName;
+ if FileExists(FileName) then
   LoadFromFile(FileName);
 end;
 
@@ -418,7 +420,7 @@ begin
   fid:= -1;
   for i:=0 to FramesList.Count -1 do
     begin
-      if  AnsiCompareText(TFrameElement(FramesList[i]).id, id) = 0 then
+      if AnsiCompareText(TFrameElement(FramesList[i]).id, id) = 0 then
          begin
            fid:=i;
            break;
@@ -538,14 +540,14 @@ var
   Element : TFrameElement;
 begin
   Element := FramesByID[ID];
-  if Element = nil then
+  if (Element = nil) and (Value <> '') then
      begin
        Element := FrameClass.Create(ID);
        Element.Tagger:=self;
        Add(Element);
      end;
-
-  Element.AsString := Value;
+  if Assigned(Element) then
+    Element.AsString := Value;
 end;
 
 
