@@ -52,6 +52,7 @@ function DecodeChannelNumber(Channels: integer): string;
 
 function GetContent(const Content1, Content2: string): string;
 function ExtractYear(const YearString, DateString: string): string;
+function isValidYear(const YearString:string):boolean;
 function ExtractGenre(const GenreString: string; offset: integer = 0): string;
 function SyncSafe_Decode(const SyncDWord: DWord): DWord;
 function SyncSafe_Encode(const SyncDWord: DWord): DWord;
@@ -121,6 +122,17 @@ begin
 end;
 
 { --------------------------------------------------------------------------- }
+
+function isValidYear(const YearString: string): boolean;
+var
+  i: Integer;
+begin
+  Result := false;
+  for i := 1 to 4 do
+    if not (YearString[i] in ['0'..'9']) then
+      exit;
+  Result := true;
+end;
 
 function ExtractGenre(const GenreString: string; offset: integer = 0): string;
 var

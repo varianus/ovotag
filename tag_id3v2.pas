@@ -96,6 +96,15 @@ type
     function WriteToStream(AStream: TStream): DWord; override;
   end;
 
+  TID3Header = packed record
+    Marker: array[0..2] of ansichar;
+    Version: word;
+    Flags: byte;
+    size: dword;
+  end;
+
+const
+    ID3_HEADER_MARKER = 'ID3';
 
 implementation
 
@@ -104,12 +113,6 @@ uses CommonFunctions, ID3v1Genres, lazutf8, LazUTF16;
 type
 
   { TID3Frame }
-  TID3Header = packed record
-    Marker: array[0..2] of ansichar;
-    Version: word;
-    Flags: byte;
-    size: dword;
-  end;
 
   TID3FrameHeader = packed record
     ID: array [0..3] of char;
@@ -123,7 +126,6 @@ type
   end;
 
 const
-  ID3_HEADER_MARKER = 'ID3';
   //  ID3_FOOTER_MARKER = '3DI';
 
   TAG_VERSION_2_2 = 2;
@@ -609,7 +611,7 @@ end;
 constructor TID3FrameComment.Create(AID: string);
 begin
   inherited Create(AID);
-  fDescription := 'PIPPO';
+  fDescription := '';
   fLanguageID  := '   ';
 end;
 
