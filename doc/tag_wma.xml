@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fpdoc-descriptions>
+  <package name="ovotag">
+    <!--
+  ====================================================================
+    tag_wma
+  ====================================================================
+-->
+    <module name="tag_wma">
+      <short/>
+      <descr/>
+      <!-- uses unit Visibility: default -->
+      <element name="Classes">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="SysUtils">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="baseTag">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="LazLoggerBase">
+        <short/>
+      </element>
+      <!-- class Visibility: default -->
+      <element name="TWMAFrame">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TWMAFrame.fValue">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TWMAFrame.fValueInt">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: public -->
+      <element name="TWMAFrame.DataType">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TWMAFrame.GetAsString">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TWMAFrame.GetAsString.Result">
+        <short/>
+      </element>
+      <!-- procedure Visibility: public -->
+      <element name="TWMAFrame.SetAsString">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TWMAFrame.SetAsString.AValue">
+        <short/>
+      </element>
+      <!-- procedure Visibility: public -->
+      <element name="TWMAFrame.SetAsWideString">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TWMAFrame.SetAsWideString.AValue">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TWMAFrame.ReadFromStream">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TWMAFrame.ReadFromStream.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TWMAFrame.ReadFromStream.AStream">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TWMAFrame.ReadFromStream.ExtInfo">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TWMAFrame.WriteToStream">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TWMAFrame.WriteToStream.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TWMAFrame.WriteToStream.AStream">
+        <short/>
+      </element>
+      <!-- procedure Visibility: public -->
+      <element name="TWMAFrame.CopyBuffer">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TWMAFrame.CopyBuffer.P">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TWMAFrame.CopyBuffer.DataSize">
+        <short/>
+      </element>
+      <!-- class Visibility: default -->
+      <element name="TWMATags">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TWMATags.GetCommonTags">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TWMATags.GetCommonTags.Result">
+        <short/>
+      </element>
+      <!-- procedure Visibility: public -->
+      <element name="TWMATags.SetCommonTags">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TWMATags.SetCommonTags.CommonTags">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TWMATags.ReadFromStream">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TWMATags.ReadFromStream.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TWMATags.ReadFromStream.AStream">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TWMATags.ReadFromStream.ExtInfo">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TWMATags.WriteToStream">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TWMATags.WriteToStream.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TWMATags.WriteToStream.AStream">
+        <short/>
+      </element>
+    </module>
+    <!-- tag_wma -->
+  </package>
+</fpdoc-descriptions>

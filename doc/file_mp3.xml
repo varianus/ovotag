@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fpdoc-descriptions>
+  <package name="ovotag">
+    <!--
+  ====================================================================
+    file_mp3
+  ====================================================================
+-->
+    <module name="file_mp3">
+      <short/>
+      <descr/>
+      <!-- uses unit Visibility: default -->
+      <element name="Classes">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="SysUtils">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="audiotag">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="basetag">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="tag_id3v2">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="CommonFunctions">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="bufstream">
+        <short/>
+      </element>
+      <!-- constant Visibility: default -->
+      <element name="Mp3FileMask">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- record type Visibility: default -->
+      <element name="VBRData">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="VBRData.Found">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="VBRData.ID">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="VBRData.Frames">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="VBRData.Bytes">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="VBRData.Scale">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="VBRData.VendorID">
+        <short/>
+      </element>
+      <!-- record type Visibility: default -->
+      <element name="FrameData">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="FrameData.Found">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="FrameData.Position">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="FrameData.Size">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="FrameData.Xing">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="FrameData.Data">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="FrameData.VersionID">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="FrameData.LayerID">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="FrameData.ProtectionBit">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="FrameData.BitRateID">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="FrameData.SampleRateID">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="FrameData.PaddingBit">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="FrameData.PrivateBit">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="FrameData.ModeID">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="FrameData.ModeExtensionID">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="FrameData.CopyrightBit">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="FrameData.OriginalBit">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="FrameData.EmphasisID">
+        <short/>
+      </element>
+      <!-- class Visibility: default -->
+      <element name="TMP3Reader">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TMP3Reader.fTags">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TMP3Reader.FVBR">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TMP3Reader.FFrame">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TMP3Reader.FMPEGStart">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TMP3Reader.FMPEGEnd">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TMP3Reader.fMediaProperty">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- function Visibility: protected -->
+      <element name="TMP3Reader.GetTags">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TMP3Reader.GetTags.Result">
+        <short/>
+      </element>
+      <!-- function Visibility: protected -->
+      <element name="TMP3Reader.GetDuration">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TMP3Reader.GetDuration.Result">
+        <short/>
+      </element>
+      <!-- function Visibility: protected -->
+      <element name="TMP3Reader.DumpInfo">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TMP3Reader.DumpInfo.Result">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TMP3Reader.UpdateFile">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TMP3Reader.UpdateFile.Result">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TMP3Reader.isUpdateable">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TMP3Reader.isUpdateable.Result">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TMP3Reader.LoadFromFile">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TMP3Reader.LoadFromFile.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TMP3Reader.LoadFromFile.AFileName">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TMP3Reader.SaveToFile">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TMP3Reader.SaveToFile.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TMP3Reader.SaveToFile.AFileName">
+        <short/>
+      </element>
+    </module>
+    <!-- file_mp3 -->
+  </package>
+</fpdoc-descriptions>

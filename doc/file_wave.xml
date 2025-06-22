@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fpdoc-descriptions>
+  <package name="ovotag">
+    <!--
+  ====================================================================
+    file_wave
+  ====================================================================
+-->
+    <module name="file_wave">
+      <short/>
+      <descr/>
+      <!-- uses unit Visibility: default -->
+      <element name="Classes">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="SysUtils">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="AudioTag">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="baseTag">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="tag_Dummy">
+        <short/>
+      </element>
+      <!-- constant Visibility: default -->
+      <element name="WaveFileMask">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- record type Visibility: default -->
+      <element name="WAVHeader">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="WAVHeader.RIFFHeader">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="WAVHeader.FileSize">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="WAVHeader.WAVEHeader">
+        <short/>
+      </element>
+      <!-- record type Visibility: default -->
+      <element name="ChunkHeader">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="ChunkHeader.ChunkName">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="ChunkHeader.ChunkSize">
+        <short/>
+      </element>
+      <!-- record type Visibility: default -->
+      <element name="FmtHeader">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="FmtHeader.FormatID">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="FmtHeader.ChannelNumber">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="FmtHeader.SampleRate">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="FmtHeader.BytesPerSecond">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="FmtHeader.BlockAlign">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="FmtHeader.BitsPerSample">
+        <short/>
+      </element>
+      <!-- class Visibility: default -->
+      <element name="TWaveReader">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TWaveReader.fTags">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TWaveReader.fMediaProperty">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TWaveReader.fFileSize">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TWaveReader.fmt">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TWaveReader.DataPos">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TWaveReader.SampleNumber">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- function Visibility: protected -->
+      <element name="TWaveReader.GetDuration">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TWaveReader.GetDuration.Result">
+        <short/>
+      </element>
+      <!-- function Visibility: protected -->
+      <element name="TWaveReader.GetTags">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TWaveReader.GetTags.Result">
+        <short/>
+      </element>
+      <!-- function Visibility: protected -->
+      <element name="TWaveReader.DumpInfo">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TWaveReader.DumpInfo.Result">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TWaveReader.LoadFromFile">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TWaveReader.LoadFromFile.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TWaveReader.LoadFromFile.AFileName">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TWaveReader.SaveToFile">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TWaveReader.SaveToFile.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TWaveReader.SaveToFile.AFileName">
+        <short/>
+      </element>
+    </module>
+    <!-- file_wave -->
+  </package>
+</fpdoc-descriptions>

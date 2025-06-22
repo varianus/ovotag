@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fpdoc-descriptions>
+  <package name="ovotag">
+    <!--
+  ====================================================================
+    AudioTag
+  ====================================================================
+-->
+    <module name="AudioTag">
+      <short/>
+      <descr/>
+      <!-- uses unit Visibility: default -->
+      <element name="Classes">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="SysUtils">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="Song">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="baseTag">
+        <short/>
+      </element>
+      <!-- function Visibility: default -->
+      <element name="SupportedExtension">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="SupportedExtension.Result">
+        <short/>
+      </element>
+      <!-- procedure Visibility: default -->
+      <element name="RegisterTagReader">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="RegisterTagReader.Extensions">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="RegisterTagReader.TagReader">
+        <short/>
+      </element>
+      <!-- function Visibility: default -->
+      <element name="LoadTags">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="LoadTags.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="LoadTags.Song">
+        <short/>
+      </element>
+      <!-- function Visibility: default -->
+      <element name="ExtractTags">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="ExtractTags.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="ExtractTags.FileName">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="ExtractTags.FileTags">
+        <short/>
+      </element>
+      <!-- function Visibility: default -->
+      <element name="GetFileTagsObject">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="GetFileTagsObject.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="GetFileTagsObject.FileName">
+        <short/>
+      </element>
+      <!-- function Visibility: default -->
+      <element name="IdentifyKind">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="IdentifyKind.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="IdentifyKind.FileName">
+        <short/>
+      </element>
+    </module>
+    <!-- AudioTag -->
+  </package>
+</fpdoc-descriptions>

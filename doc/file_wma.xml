@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fpdoc-descriptions>
+  <package name="ovotag">
+    <!--
+  ====================================================================
+    file_wma
+  ====================================================================
+-->
+    <module name="file_wma">
+      <short/>
+      <descr/>
+      <!-- uses unit Visibility: default -->
+      <element name="Classes">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="SysUtils">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="AudioTag">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="basetag">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="tag_wma">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="LazLoggerBase">
+        <short/>
+      </element>
+      <!-- constant Visibility: default -->
+      <element name="WMAFileMask">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- record type Visibility: default -->
+      <element name="TObjectHeader">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TObjectHeader.ObjectID">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TObjectHeader.ObjectSize">
+        <short/>
+      </element>
+      <!-- record type Visibility: default -->
+      <element name="TWMAHeader">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TWMAHeader.ObjectHeader">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TWMAHeader.ObjectCount">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TWMAHeader.Reserved">
+        <short/>
+      </element>
+      <!-- record type Visibility: default -->
+      <element name="TWMAFileProperty">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TWMAFileProperty.FileHeader">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TWMAFileProperty.CreationDate">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TWMAFileProperty.DataPacketsCount">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TWMAFileProperty.PlayDuration">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TWMAFileProperty.SendDuration">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TWMAFileProperty.Preroll">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TWMAFileProperty.Flags">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TWMAFileProperty.MinDataPacketSize">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TWMAFileProperty.MaxDataPacketSize">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TWMAFileProperty.MaxBitrate">
+        <short/>
+      </element>
+      <!-- record type Visibility: default -->
+      <element name="TWMAAudioProperty">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TWMAAudioProperty.CodecID">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TWMAAudioProperty.Channels">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TWMAAudioProperty.Samples">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TWMAAudioProperty.BytePerSecond">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TWMAAudioProperty.BlockAlignment">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TWMAAudioProperty.BitsPerSamples">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TWMAAudioProperty.CodecDataSize">
+        <short/>
+      </element>
+      <!-- record type Visibility: default -->
+      <element name="TWMAStreamProperty">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TWMAStreamProperty.StreamType">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TWMAStreamProperty.ErrorCorrectionType">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TWMAStreamProperty.TimeOffset">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TWMAStreamProperty.DataLength">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TWMAStreamProperty.ErrorCorrectionLength">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TWMAStreamProperty.Flags">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TWMAStreamProperty.Reserved">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TWMAStreamProperty.AudioProperty">
+        <short/>
+      </element>
+      <!-- record type Visibility: default -->
+      <element name="TWMAContentDescription">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TWMAContentDescription.TitleLength">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TWMAContentDescription.AuthorLength">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TWMAContentDescription.CopyrightLength">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TWMAContentDescription.DescriptionLength">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TWMAContentDescription.RatingLength">
+        <short/>
+      </element>
+      <!-- class Visibility: default -->
+      <element name="TWMAReader">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TWMAReader.fTags">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TWMAReader.fDuration">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TWMAReader.fBitRate">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TWMAReader.fChannels">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TWMAReader.fSampling">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TWMAReader.fChannelMode">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TWMAReader.fObjectCount">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TWMAReader.fHaveContentDescription">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TWMAReader.fHaveExtendedDescription">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- procedure Visibility: private -->
+      <element name="TWMAReader.ImportContentDescription">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TWMAReader.ImportContentDescription.AStream">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TWMAReader.ImportContentDescription.ContentDescription">
+        <short/>
+      </element>
+      <!-- function Visibility: protected -->
+      <element name="TWMAReader.GetTags">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TWMAReader.GetTags.Result">
+        <short/>
+      </element>
+      <!-- function Visibility: protected -->
+      <element name="TWMAReader.GetDuration">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TWMAReader.GetDuration.Result">
+        <short/>
+      </element>
+      <!-- function Visibility: protected -->
+      <element name="TWMAReader.DumpInfo">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TWMAReader.DumpInfo.Result">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TWMAReader.isUpdateable">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TWMAReader.isUpdateable.Result">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TWMAReader.LoadFromFile">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TWMAReader.LoadFromFile.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TWMAReader.LoadFromFile.AFileName">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TWMAReader.SaveToFile">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TWMAReader.SaveToFile.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TWMAReader.SaveToFile.AFileName">
+        <short/>
+      </element>
+    </module>
+    <!-- file_wma -->
+  </package>
+</fpdoc-descriptions>

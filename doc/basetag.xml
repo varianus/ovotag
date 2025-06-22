@@ -1,0 +1,989 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fpdoc-descriptions>
+  <package name="ovotag">
+    <!--
+  ====================================================================
+    basetag
+  ====================================================================
+-->
+    <module name="basetag">
+      <short/>
+      <descr/>
+      <!-- uses unit Visibility: default -->
+      <element name="Classes">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="SysUtils">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="contnrs">
+        <short/>
+      </element>
+      <!-- record type Visibility: default -->
+      <element name="TMediaProperty">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TMediaProperty.BitRate">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TMediaProperty.BPM">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TMediaProperty.Sampling">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TMediaProperty.ChannelMode">
+        <short/>
+      </element>
+      <!-- enumeration type Visibility: default -->
+      <element name="TIDFields">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- enumeration value Visibility: default -->
+      <element name="TIDFields.idAlbum">
+        <short/>
+      </element>
+      <!-- enumeration value Visibility: default -->
+      <element name="TIDFields.idAlbumArtist">
+        <short/>
+      </element>
+      <!-- enumeration value Visibility: default -->
+      <element name="TIDFields.idArtist">
+        <short/>
+      </element>
+      <!-- enumeration value Visibility: default -->
+      <element name="TIDFields.idComment">
+        <short/>
+      </element>
+      <!-- enumeration value Visibility: default -->
+      <element name="TIDFields.idGenre">
+        <short/>
+      </element>
+      <!-- enumeration value Visibility: default -->
+      <element name="TIDFields.idTitle">
+        <short/>
+      </element>
+      <!-- enumeration value Visibility: default -->
+      <element name="TIDFields.idTrack">
+        <short/>
+      </element>
+      <!-- enumeration value Visibility: default -->
+      <element name="TIDFields.idYear">
+        <short/>
+      </element>
+      <!-- set type Visibility: default -->
+      <element name="TIDFieldsSet">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- record type Visibility: default -->
+      <element name="TCommonTags">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TCommonTags.Index">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TCommonTags.ID">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TCommonTags.FileName">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TCommonTags.Album">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TCommonTags.AlbumArtist">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TCommonTags.Artist">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TCommonTags.Comment">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TCommonTags.Duration">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TCommonTags.Genre">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TCommonTags.Title">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TCommonTags.Track">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TCommonTags.TrackString">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TCommonTags.Year">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TCommonTags.HasImage">
+        <short/>
+      </element>
+      <!-- array type Visibility: default -->
+      <element name="ACommonTags">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- operator Visibility: default -->
+      <element name="equal(TCommonTags,TCommonTags):Boolean">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="equal(TCommonTags,TCommonTags):Boolean.Identifier b">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="equal(TCommonTags,TCommonTags):Boolean.t1">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="equal(TCommonTags,TCommonTags):Boolean.t2">
+        <short/>
+      </element>
+      <!-- "class of" type Visibility: default -->
+      <element name="TFrameElementClass">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- class Visibility: default -->
+      <element name="TTags">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- class Visibility: default -->
+      <element name="TFrameElement">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TFrameElement.fId">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- function Visibility: protected -->
+      <element name="TFrameElement.GetSize">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TFrameElement.GetSize.Result">
+        <short/>
+      </element>
+      <!-- function Visibility: protected -->
+      <element name="TFrameElement.GetID">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TFrameElement.GetID.Result">
+        <short/>
+      </element>
+      <!-- procedure Visibility: protected -->
+      <element name="TFrameElement.SetID">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TFrameElement.SetID.AValue">
+        <short/>
+      </element>
+      <!-- function Visibility: protected -->
+      <element name="TFrameElement.GetAsString">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TFrameElement.GetAsString.Result">
+        <short/>
+      </element>
+      <!-- procedure Visibility: protected -->
+      <element name="TFrameElement.SetAsString">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TFrameElement.SetAsString.AValue">
+        <short/>
+      </element>
+      <!-- variable Visibility: public -->
+      <element name="TFrameElement.Tagger">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- constructor Visibility: public -->
+      <element name="TFrameElement.Create">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TFrameElement.Create.ID">
+        <short/>
+      </element>
+      <!-- destructor Visibility: public -->
+      <element name="TFrameElement.Destroy">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TFrameElement.ReadFromStream">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TFrameElement.ReadFromStream.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TFrameElement.ReadFromStream.AStream">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TFrameElement.ReadFromStream.ExtInfo">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TFrameElement.WriteToStream">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TFrameElement.WriteToStream.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TFrameElement.WriteToStream.AStream">
+        <short/>
+      </element>
+      <!-- property Visibility: public -->
+      <element name="TFrameElement.Size">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- property Visibility: public -->
+      <element name="TFrameElement.ID">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- property Visibility: public -->
+      <element name="TFrameElement.AsString">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- class Visibility: default -->
+      <element name="TImageElement">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TImageElement.FFrameRef">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TImageElement.FImage">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- procedure Visibility: private -->
+      <element name="TImageElement.SetFrameRef">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TImageElement.SetFrameRef.AValue">
+        <short/>
+      </element>
+      <!-- procedure Visibility: private -->
+      <element name="TImageElement.SetImage">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TImageElement.SetImage.AValue">
+        <short/>
+      </element>
+      <!-- function Visibility: protected -->
+      <element name="TImageElement.GetAsString">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TImageElement.GetAsString.Result">
+        <short/>
+      </element>
+      <!-- procedure Visibility: protected -->
+      <element name="TImageElement.SetAsString">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TImageElement.SetAsString.AValue">
+        <short/>
+      </element>
+      <!-- variable Visibility: public -->
+      <element name="TImageElement.Description">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: public -->
+      <element name="TImageElement.MIMEType">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: public -->
+      <element name="TImageElement.PictureType">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- constructor Visibility: public -->
+      <element name="TImageElement.Create">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- destructor Visibility: public -->
+      <element name="TImageElement.Destroy">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TImageElement.ReadFromStream">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TImageElement.ReadFromStream.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TImageElement.ReadFromStream.AStream">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TImageElement.ReadFromStream.ExtInfo">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TImageElement.WriteToStream">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TImageElement.WriteToStream.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TImageElement.WriteToStream.AStream">
+        <short/>
+      </element>
+      <!-- property Visibility: public -->
+      <element name="TImageElement.FrameRef">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- property Visibility: public -->
+      <element name="TImageElement.Image">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TTags.FramesList">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TTags.ImagesList">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- function Visibility: private -->
+      <element name="TTags.GetCount">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TTags.GetCount.Result">
+        <short/>
+      </element>
+      <!-- function Visibility: private -->
+      <element name="TTags.GetFrameByID">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TTags.GetFrameByID.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TTags.GetFrameByID.ID">
+        <short/>
+      </element>
+      <!-- function Visibility: private -->
+      <element name="TTags.GetFrameByIndex">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TTags.GetFrameByIndex.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TTags.GetFrameByIndex.Index">
+        <short/>
+      </element>
+      <!-- function Visibility: private -->
+      <element name="TTags.GetImageByID">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TTags.GetImageByID.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TTags.GetImageByID.ID">
+        <short/>
+      </element>
+      <!-- function Visibility: private -->
+      <element name="TTags.GetImageByIndex">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TTags.GetImageByIndex.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TTags.GetImageByIndex.Index">
+        <short/>
+      </element>
+      <!-- function Visibility: private -->
+      <element name="TTags.GetImageCount">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TTags.GetImageCount.Result">
+        <short/>
+      </element>
+      <!-- function Visibility: protected -->
+      <element name="TTags.GetCommonTags">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TTags.GetCommonTags.Result">
+        <short/>
+      </element>
+      <!-- procedure Visibility: protected -->
+      <element name="TTags.SetCommonTags">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TTags.SetCommonTags.CommonTags">
+        <short/>
+      </element>
+      <!-- constructor Visibility: public -->
+      <element name="TTags.Create">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- destructor Visibility: public -->
+      <element name="TTags.Destroy">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TTags.ReadFromStream">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TTags.ReadFromStream.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TTags.ReadFromStream.AStream">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TTags.ReadFromStream.ExtInfo">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TTags.WriteToStream">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TTags.WriteToStream.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TTags.WriteToStream.AStream">
+        <short/>
+      </element>
+      <!-- procedure Visibility: public -->
+      <element name="TTags.Add">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TTags.Add.Frame">
+        <short/>
+      </element>
+      <!-- procedure Visibility: public -->
+      <element name="TTags.Remove">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TTags.Remove.Frame">
+        <short/>
+      </element>
+      <!-- procedure Visibility: public -->
+      <element name="TTags.AddImage">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TTags.AddImage.Image">
+        <short/>
+      </element>
+      <!-- procedure Visibility: public -->
+      <element name="TTags.Clear">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TTags.GetFrameValue">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TTags.GetFrameValue.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TTags.GetFrameValue.ID">
+        <short/>
+      </element>
+      <!-- procedure Visibility: public -->
+      <element name="TTags.SetFrameValue">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TTags.SetFrameValue.ID">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TTags.SetFrameValue.Value">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TTags.SetFrameValue.FrameClass">
+        <short/>
+      </element>
+      <!-- property Visibility: public -->
+      <element name="TTags.Count">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- property Visibility: public -->
+      <element name="TTags.ImageCount">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- property Visibility: public -->
+      <element name="TTags.Frames">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: public -->
+      <element name="TTags.Frames.Index">
+        <short/>
+      </element>
+      <!-- property Visibility: public -->
+      <element name="TTags.FramesByID">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: public -->
+      <element name="TTags.FramesByID.ID">
+        <short/>
+      </element>
+      <!-- property Visibility: public -->
+      <element name="TTags.Images">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: public -->
+      <element name="TTags.Images.Index">
+        <short/>
+      </element>
+      <!-- property Visibility: public -->
+      <element name="TTags.ImagesByID">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: public -->
+      <element name="TTags.ImagesByID.ID">
+        <short/>
+      </element>
+      <!-- "class of" type Visibility: default -->
+      <element name="TTagReaderClass">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- class Visibility: default -->
+      <element name="TTagReader">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TTagReader.FFileName">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- function Visibility: protected -->
+      <element name="TTagReader.GetTags">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TTagReader.GetTags.Result">
+        <short/>
+      </element>
+      <!-- function Visibility: protected -->
+      <element name="TTagReader.GetDuration">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TTagReader.GetDuration.Result">
+        <short/>
+      </element>
+      <!-- function Visibility: protected -->
+      <element name="TTagReader.DumpInfo">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TTagReader.DumpInfo.Result">
+        <short/>
+      </element>
+      <!-- constructor Visibility: public -->
+      <element name="TTagReader.Create">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TTagReader.Create.FileName">
+        <short/>
+      </element>
+      <!-- destructor Visibility: public -->
+      <element name="TTagReader.Destroy">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TTagReader.GetCommonTags">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TTagReader.GetCommonTags.Result">
+        <short/>
+      </element>
+      <!-- procedure Visibility: public -->
+      <element name="TTagReader.SetCommonTags">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TTagReader.SetCommonTags.CommonTags">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TTagReader.LoadFromFile">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TTagReader.LoadFromFile.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TTagReader.LoadFromFile.AFileName">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TTagReader.SaveToFile">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TTagReader.SaveToFile.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TTagReader.SaveToFile.AFileName">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TTagReader.UpdateFile">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TTagReader.UpdateFile.Result">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TTagReader.isUpdateable">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TTagReader.isUpdateable.Result">
+        <short/>
+      </element>
+      <!-- property Visibility: public -->
+      <element name="TTagReader.FileName">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- property Visibility: public -->
+      <element name="TTagReader.Tags">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- property Visibility: public -->
+      <element name="TTagReader.Duration">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- property Visibility: public -->
+      <element name="TTagReader.MediaProperty">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- function Visibility: default -->
+      <element name="GetTagByID">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="GetTagByID.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="GetTagByID.Tags">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="GetTagByID.Field">
+        <short/>
+      </element>
+      <!-- procedure Visibility: default -->
+      <element name="SetTagByID">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="SetTagByID.Tags">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="SetTagByID.Field">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="SetTagByID.Value">
+        <short/>
+      </element>
+      <!-- function Visibility: default -->
+      <element name="ExportToJson">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="ExportToJson.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="ExportToJson.Tags">
+        <short/>
+      </element>
+    </module>
+    <!-- basetag -->
+  </package>
+</fpdoc-descriptions>

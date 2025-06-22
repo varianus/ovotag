@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fpdoc-descriptions>
+  <package name="ovotag">
+    <!--
+  ====================================================================
+    CommonFunctions
+  ====================================================================
+-->
+    <module name="CommonFunctions">
+      <element name="Classes">
+        <short/>
+      </element>
+      <element name="SysUtils">
+        <short/>
+      </element>
+      <element name="UNICODE_ID">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <element name="ExtractTrack">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <element name="ExtractTrack.Result">
+        <short/>
+      </element>
+      <element name="ExtractTrack.TrackString">
+        <short/>
+      </element>
+      <element name="ExtractString">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <element name="ExtractString.Result">
+        <short/>
+      </element>
+      <element name="ExtractString.p">
+        <short/>
+      </element>
+      <element name="ExtractString.size">
+        <short/>
+      </element>
+      <element name="ExtractString.Encoding">
+        <short/>
+      </element>
+      <element name="ExtractString_ANSI">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <element name="ExtractString_ANSI.Result">
+        <short/>
+      </element>
+      <element name="ExtractString_ANSI.p">
+        <short/>
+      </element>
+      <element name="ExtractString_ANSI.size">
+        <short/>
+      </element>
+      <element name="ExtractString_UTF8">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <element name="ExtractString_UTF8.Result">
+        <short/>
+      </element>
+      <element name="ExtractString_UTF8.p">
+        <short/>
+      </element>
+      <element name="ExtractString_UTF8.size">
+        <short/>
+      </element>
+      <element name="ExtractString_UTF16">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <element name="ExtractString_UTF16.Result">
+        <short/>
+      </element>
+      <element name="ExtractString_UTF16.p">
+        <short/>
+      </element>
+      <element name="ExtractString_UTF16.size">
+        <short/>
+      </element>
+      <element name="ExtractString_UTF16.Encoding">
+        <short/>
+      </element>
+      <element name="FixTrack">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <element name="FixTrack.TrackString">
+        <short/>
+      </element>
+      <element name="FixTrack.TrackNr">
+        <short/>
+      </element>
+      <element name="FixTrack.TrackStringFixed">
+        <short/>
+      </element>
+      <element name="FixTrack.TrackNrFixed">
+        <short/>
+      </element>
+      <element name="Swap32">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <element name="Swap32.Result">
+        <short/>
+      </element>
+      <element name="Swap32.Figure">
+        <short/>
+      </element>
+      <element name="DecodeChannelNumber">
+        <short>Return text rapresentation for channel number</short>
+      </element>
+      <element name="DecodeChannelNumber.Result">
+        <short>Textual representaion of the channel number</short>
+        <descr>Return a string representing channel number.
+
+Values are :
+<ul>
+            <li>Mono</li>
+            <li>Stereo</li>
+            <li>Multi channel(&lt;number&gt;)</li>
+          </ul>
+        </descr>
+      </element>
+      <element name="DecodeChannelNumber.Channels">
+        <short>Number of channels</short>
+      </element>
+      <element name="GetContent">
+        <short>Helper function to choose between two values</short>
+        <descr>If the first string is blank return the secon string otherwise the first one</descr>
+      </element>
+      <element name="GetContent.Result">
+        <short/>
+      </element>
+      <element name="GetContent.Content1">
+        <short/>
+      </element>
+      <element name="GetContent.Content2">
+        <short/>
+      </element>
+      <element name="ExtractYear">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <element name="ExtractYear.Result">
+        <short/>
+      </element>
+      <element name="ExtractYear.YearString">
+        <short/>
+      </element>
+      <element name="ExtractYear.DateString">
+        <short/>
+      </element>
+      <element name="isValidYear">
+        <short>Check if the string contains a valid year</short>
+        <descr>Check if the string contains exactly four digits.
+Used to choose correct tag in ID3v2 (<b>TYEAR</b> or <b>TDRC</b>)</descr>
+      </element>
+      <element name="isValidYear.Result">
+        <short/>
+      </element>
+      <element name="isValidYear.YearString">
+        <short/>
+      </element>
+      <element name="ExtractGenre">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <element name="ExtractGenre.Result">
+        <short/>
+      </element>
+      <element name="ExtractGenre.GenreString">
+        <short/>
+      </element>
+      <element name="ExtractGenre.offset">
+        <short/>
+      </element>
+      <element name="SyncSafe_Decode">
+        <short>Decode a 32 bit unsigned integer using ID3v2 synch safe algorithm</short>
+        <descr>ID3V2 tags use a special algorithm to encode sizes so they cannot be confused with a MP3 frames during file parsing</descr>
+      </element>
+      <element name="SyncSafe_Decode.Result">
+        <short/>
+      </element>
+      <element name="SyncSafe_Decode.SyncDWord">
+        <short/>
+      </element>
+      <element name="SyncSafe_Encode">
+        <short>Encode a 32 bit unsigned integer using ID3v2 synch safe algorithm</short>
+        <descr>ID3V2 tags use a special algorithm to encode sizes so they cannot be confused with a MP3 frames during file parsing</descr>
+      </element>
+      <element name="SyncSafe_Encode.Result">
+        <short/>
+      </element>
+      <element name="SyncSafe_Encode.SyncDWord">
+        <short/>
+      </element>
+      <element name="GetBit">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <element name="GetBit.Result">
+        <short/>
+      </element>
+      <element name="GetBit.Value">
+        <short/>
+      </element>
+      <element name="GetBit.Bit">
+        <short/>
+      </element>
+      <element name="ClearBit">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <element name="ClearBit.Result">
+        <short/>
+      </element>
+      <element name="ClearBit.Value">
+        <short/>
+      </element>
+      <element name="ClearBit.Bit">
+        <short/>
+      </element>
+      <element name="SetBit">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <element name="SetBit.Result">
+        <short/>
+      </element>
+      <element name="SetBit.Value">
+        <short/>
+      </element>
+      <element name="SetBit.Bit">
+        <short/>
+      </element>
+      <element name="EnableBit">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <element name="EnableBit.Result">
+        <short/>
+      </element>
+      <element name="EnableBit.Value">
+        <short/>
+      </element>
+      <element name="EnableBit.Bit">
+        <short/>
+      </element>
+      <element name="EnableBit.TurnOn">
+        <short/>
+      </element>
+      <short>Unit containing support function for various tag reader</short>
+    </module>
+    <!-- CommonFunctions -->
+  </package>
+</fpdoc-descriptions>

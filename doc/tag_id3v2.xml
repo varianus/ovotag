@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fpdoc-descriptions>
+  <package name="ovotag">
+    <!--
+  ====================================================================
+    tag_id3v2
+  ====================================================================
+-->
+    <module name="tag_id3v2">
+      <short/>
+      <descr/>
+      <!-- uses unit Visibility: default -->
+      <element name="Classes">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="SysUtils">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="basetag">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="LConvEncoding">
+        <short/>
+      </element>
+      <!-- record type Visibility: default -->
+      <element name="TID3V1Record">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TID3V1Record.Header">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TID3V1Record.Title">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TID3V1Record.Artist">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TID3V1Record.Album">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TID3V1Record.Year">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TID3V1Record.Comment">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TID3V1Record.Stopper">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TID3V1Record.Track">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TID3V1Record.Genre">
+        <short/>
+      </element>
+      <!-- class Visibility: default -->
+      <element name="TID3Frame">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: protected -->
+      <element name="TID3Frame.fSize">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: protected -->
+      <element name="TID3Frame.fFlags">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: protected -->
+      <element name="TID3Frame.Data">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- function Visibility: protected -->
+      <element name="TID3Frame.IsValid">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TID3Frame.IsValid.Result">
+        <short/>
+      </element>
+      <!-- function Visibility: protected -->
+      <element name="TID3Frame.GetSize">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TID3Frame.GetSize.Result">
+        <short/>
+      </element>
+      <!-- destructor Visibility: public -->
+      <element name="TID3Frame.Destroy">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TID3Frame.GetAsString">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TID3Frame.GetAsString.Result">
+        <short/>
+      </element>
+      <!-- procedure Visibility: public -->
+      <element name="TID3Frame.SetAsString">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TID3Frame.SetAsString.AValue">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TID3Frame.ReadFromStream">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TID3Frame.ReadFromStream.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TID3Frame.ReadFromStream.AStream">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TID3Frame.ReadFromStream.ExtInfo">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TID3Frame.WriteToStream">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TID3Frame.WriteToStream.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TID3Frame.WriteToStream.AStream">
+        <short/>
+      </element>
+      <!-- class Visibility: default -->
+      <element name="TID3FrameComment">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TID3FrameComment.fLanguageID">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TID3FrameComment.fDescription">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TID3FrameComment.GetAsString">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TID3FrameComment.GetAsString.Result">
+        <short/>
+      </element>
+      <!-- procedure Visibility: public -->
+      <element name="TID3FrameComment.SetAsString">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TID3FrameComment.SetAsString.AValue">
+        <short/>
+      </element>
+      <!-- constructor Visibility: public -->
+      <element name="TID3FrameComment.Create">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TID3FrameComment.Create.AID">
+        <short/>
+      </element>
+      <!-- record type Visibility: default -->
+      <element name="RHeaderInfo">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="RHeaderInfo.ID">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="RHeaderInfo.Flags">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="RHeaderInfo.DataSize">
+        <short/>
+      </element>
+      <!-- class Visibility: default -->
+      <element name="TID3Tags">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TID3Tags.fPadding">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TID3Tags.fTotalSize">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- procedure Visibility: private -->
+      <element name="TID3Tags.DecodeFrameToImage">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TID3Tags.DecodeFrameToImage.Frame">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TID3Tags.DecodeFrameToImage.Image">
+        <short/>
+      </element>
+      <!-- function Visibility: private -->
+      <element name="TID3Tags.GetBestMatch">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TID3Tags.GetBestMatch.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TID3Tags.GetBestMatch.Index1">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TID3Tags.GetBestMatch.Index2">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TID3Tags.GetBestMatch.NewFrame">
+        <short/>
+      </element>
+      <!-- function Visibility: private -->
+      <element name="TID3Tags.GetRealSize">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TID3Tags.GetRealSize.Result">
+        <short/>
+      </element>
+      <!-- function Visibility: private -->
+      <element name="TID3Tags.ImportFromID3V1">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TID3Tags.ImportFromID3V1.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TID3Tags.ImportFromID3V1.AStream">
+        <short/>
+      </element>
+      <!-- function Visibility: private -->
+      <element name="TID3Tags.IsValid">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TID3Tags.IsValid.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TID3Tags.IsValid.ID">
+        <short/>
+      </element>
+      <!-- function Visibility: private -->
+      <element name="TID3Tags.ReadTagHeader">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TID3Tags.ReadTagHeader.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TID3Tags.ReadTagHeader.AStream">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TID3Tags.ReadTagHeader.ID">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TID3Tags.ReadTagHeader.DataSize">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TID3Tags.ReadTagHeader.Flags">
+        <short/>
+      </element>
+      <!-- variable Visibility: public -->
+      <element name="TID3Tags.Version">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: public -->
+      <element name="TID3Tags.FromV1">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- property Visibility: public -->
+      <element name="TID3Tags.Size">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- property Visibility: public -->
+      <element name="TID3Tags.RealSize">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- property Visibility: public -->
+      <element name="TID3Tags.Padding">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TID3Tags.GetCommonTags">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TID3Tags.GetCommonTags.Result">
+        <short/>
+      </element>
+      <!-- procedure Visibility: public -->
+      <element name="TID3Tags.SetCommonTags">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TID3Tags.SetCommonTags.CommonTags">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TID3Tags.ReadFromStream">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TID3Tags.ReadFromStream.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TID3Tags.ReadFromStream.AStream">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TID3Tags.ReadFromStream.ExtInfo">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TID3Tags.WriteToStream">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TID3Tags.WriteToStream.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TID3Tags.WriteToStream.AStream">
+        <short/>
+      </element>
+      <!-- record type Visibility: default -->
+      <element name="TID3Header">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TID3Header.Marker">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TID3Header.Version">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TID3Header.Flags">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TID3Header.size">
+        <short/>
+      </element>
+      <!-- constant Visibility: default -->
+      <element name="ID3_HEADER_MARKER">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+    </module>
+    <!-- tag_id3v2 -->
+  </package>
+</fpdoc-descriptions>
