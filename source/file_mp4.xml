@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fpdoc-descriptions>
+  <package name="ovotag">
+    <!--
+  ====================================================================
+    file_Mp4
+  ====================================================================
+-->
+    <module name="file_Mp4">
+      <short/>
+      <descr/>
+      <!-- uses unit Visibility: default -->
+      <element name="Classes">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="SysUtils">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="AudioTag">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="baseTag">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="tag_Mp4">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="tag_id3v2">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="CommonFunctions">
+        <short/>
+      </element>
+      <!-- constant Visibility: default -->
+      <element name="Mp4FileMask">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- array type Visibility: default -->
+      <element name="AtomName">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- enumeration type Visibility: default -->
+      <element name="StreamKind">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- enumeration value Visibility: default -->
+      <element name="StreamKind.skMp4">
+        <short/>
+      </element>
+      <!-- enumeration value Visibility: default -->
+      <element name="StreamKind.skADTS">
+        <short/>
+      </element>
+      <!-- enumeration value Visibility: default -->
+      <element name="StreamKind.skADIF">
+        <short/>
+      </element>
+      <!-- enumeration value Visibility: default -->
+      <element name="StreamKind.skRaw">
+        <short/>
+      </element>
+      <!-- record type Visibility: default -->
+      <element name="RAtomHeader">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="RAtomHeader.Size">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="RAtomHeader.Name">
+        <short/>
+      </element>
+      <!-- constant Visibility: default -->
+      <element name="EmptyAtom">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- record type Visibility: default -->
+      <element name="TADTSHeader">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TADTSHeader.b">
+        <short/>
+      </element>
+      <!-- class Visibility: default -->
+      <element name="TMp4Atom">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- class Visibility: default -->
+      <element name="TMP4AtomList">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TMP4AtomList.Find">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TMP4AtomList.Find.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TMP4AtomList.Find.Name0">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TMP4AtomList.Find.Name1">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TMP4AtomList.Find.Name2">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TMP4AtomList.Find.Name3">
+        <short/>
+      </element>
+      <!-- constructor Visibility: public -->
+      <element name="TMP4AtomList.Create">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TMP4AtomList.Create.Stream">
+        <short/>
+      </element>
+      <!-- destructor Visibility: public -->
+      <element name="TMP4AtomList.Destroy">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: public -->
+      <element name="TMp4Atom.Offset">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: public -->
+      <element name="TMp4Atom.AtomLength">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: public -->
+      <element name="TMp4Atom.children">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: public -->
+      <element name="TMp4Atom.Name">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TMp4Atom.Find">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TMp4Atom.Find.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TMp4Atom.Find.Name0">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TMp4Atom.Find.Name1">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TMp4Atom.Find.Name2">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TMp4Atom.Find.Name3">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TMp4Atom.FindAll">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TMp4Atom.FindAll.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TMp4Atom.FindAll.AName">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TMp4Atom.FindAll.Recursive">
+        <short/>
+      </element>
+      <!-- constructor Visibility: public -->
+      <element name="TMp4Atom.Create">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TMp4Atom.Create.Stream">
+        <short/>
+      </element>
+      <!-- destructor Visibility: public -->
+      <element name="TMp4Atom.Destroy">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- class Visibility: default -->
+      <element name="TMp4Reader">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TMp4Reader.fTagsID3">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TMp4Reader.fTags">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TMp4Reader.FSampleRate">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TMp4Reader.FSamples">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TMp4Reader.fDuration">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TMp4Reader.fMediaProperty">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- function Visibility: private -->
+      <element name="TMp4Reader.DetectKind">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TMp4Reader.DetectKind.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TMp4Reader.DetectKind.AStream">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TMp4Reader.DetectKind.HaveID3">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TMp4Reader.DetectKind.Offset">
+        <short/>
+      </element>
+      <!-- function Visibility: protected -->
+      <element name="TMp4Reader.GetDuration">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TMp4Reader.GetDuration.Result">
+        <short/>
+      </element>
+      <!-- function Visibility: protected -->
+      <element name="TMp4Reader.GetTags">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TMp4Reader.GetTags.Result">
+        <short/>
+      </element>
+      <!-- function Visibility: protected -->
+      <element name="TMp4Reader.DumpInfo">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TMp4Reader.DumpInfo.Result">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TMp4Reader.LoadFromFile">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TMp4Reader.LoadFromFile.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TMp4Reader.LoadFromFile.AFileName">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TMp4Reader.SaveToFile">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TMp4Reader.SaveToFile.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TMp4Reader.SaveToFile.AFileName">
+        <short/>
+      </element>
+    </module>
+    <!-- file_Mp4 -->
+  </package>
+</fpdoc-descriptions>

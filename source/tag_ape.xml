@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fpdoc-descriptions>
+  <package name="ovotag">
+    <!--
+  ====================================================================
+    tag_APE
+  ====================================================================
+-->
+    <module name="tag_APE">
+      <short/>
+      <descr/>
+      <!-- uses unit Visibility: default -->
+      <element name="Classes">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="SysUtils">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="baseTag">
+        <short/>
+      </element>
+      <!-- constant Visibility: default -->
+      <element name="APE_IDENTIFIER">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- record type Visibility: default -->
+      <element name="TAPEHeader">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TAPEHeader.Marker">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TAPEHeader.versionNumber">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TAPEHeader.TagSize">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TAPEHeader.count">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TAPEHeader.flags">
+        <short/>
+      </element>
+      <!-- variable Visibility: default -->
+      <element name="TAPEHeader.reserved">
+        <short/>
+      </element>
+      <!-- class Visibility: default -->
+      <element name="TAPEFrame">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TAPEFrame.fValue">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: protected -->
+      <element name="TAPEFrame.DataType">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- function Visibility: protected -->
+      <element name="TAPEFrame.GetAsString">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TAPEFrame.GetAsString.Result">
+        <short/>
+      </element>
+      <!-- procedure Visibility: protected -->
+      <element name="TAPEFrame.SetAsString">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TAPEFrame.SetAsString.AValue">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TAPEFrame.ReadFromStream">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TAPEFrame.ReadFromStream.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TAPEFrame.ReadFromStream.AStream">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TAPEFrame.ReadFromStream.ExtInfo">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TAPEFrame.WriteToStream">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TAPEFrame.WriteToStream.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TAPEFrame.WriteToStream.AStream">
+        <short/>
+      </element>
+      <!-- class Visibility: default -->
+      <element name="TAPETags">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function Visibility: private -->
+      <element name="TAPETags.ImportFromID3V1">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TAPETags.ImportFromID3V1.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TAPETags.ImportFromID3V1.AStream">
+        <short/>
+      </element>
+      <!-- variable Visibility: public -->
+      <element name="TAPETags.FromV1">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TAPETags.GetCommonTags">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TAPETags.GetCommonTags.Result">
+        <short/>
+      </element>
+      <!-- procedure Visibility: public -->
+      <element name="TAPETags.SetCommonTags">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TAPETags.SetCommonTags.CommonTags">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TAPETags.ReadFromStream">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TAPETags.ReadFromStream.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TAPETags.ReadFromStream.AStream">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TAPETags.ReadFromStream.ExtInfo">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TAPETags.WriteToStream">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TAPETags.WriteToStream.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TAPETags.WriteToStream.AStream">
+        <short/>
+      </element>
+    </module>
+    <!-- tag_APE -->
+  </package>
+</fpdoc-descriptions>

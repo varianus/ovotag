@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fpdoc-descriptions>
+  <package name="ovotag">
+    <!--
+  ====================================================================
+    song
+  ====================================================================
+-->
+    <module name="song">
+      <short/>
+      <descr/>
+      <!-- uses unit Visibility: default -->
+      <element name="Classes">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="SysUtils">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="basetag">
+        <short/>
+      </element>
+      <!-- enumeration type Visibility: default -->
+      <element name="TTagKind">
+        <short>Enumeration of basic tags fields</short>
+      </element>
+      <!-- enumeration value Visibility: default -->
+      <element name="TTagKind.tkNone">
+        <short/>
+      </element>
+      <!-- enumeration value Visibility: default -->
+      <element name="TTagKind.tkAlbum">
+        <short/>
+      </element>
+      <!-- enumeration value Visibility: default -->
+      <element name="TTagKind.tkAlbumArtist">
+        <short/>
+      </element>
+      <!-- enumeration value Visibility: default -->
+      <element name="TTagKind.tkArtist">
+        <short/>
+      </element>
+      <!-- enumeration value Visibility: default -->
+      <element name="TTagKind.tkSong">
+        <short/>
+      </element>
+      <!-- enumeration value Visibility: default -->
+      <element name="TTagKind.tkYear">
+        <short/>
+      </element>
+      <!-- enumeration value Visibility: default -->
+      <element name="TTagKind.tkGenre">
+        <short/>
+      </element>
+      <!-- enumeration value Visibility: default -->
+      <element name="TTagKind.tkTrack">
+        <short/>
+      </element>
+      <!-- pointer type Visibility: default -->
+      <element name="PSong">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- class Visibility: default -->
+      <element name="TSong">
+        <short>Class representing an audio file</short>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TSong.FExtraProperty">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TSong.FFullName">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TSong.FName">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TSong.fFilePath">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TSong.FFileName">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TSong.FTagLoaded">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TSong.FTags">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- function Visibility: private -->
+      <element name="TSong.GetTags">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TSong.GetTags.Result">
+        <short/>
+      </element>
+      <!-- function Visibility: private -->
+      <element name="TSong.GetTitle">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TSong.GetTitle.Result">
+        <short/>
+      </element>
+      <!-- procedure Visibility: private -->
+      <element name="TSong.SetExtraProperty">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TSong.SetExtraProperty.AValue">
+        <short/>
+      </element>
+      <!-- procedure Visibility: private -->
+      <element name="TSong.SetFullName">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TSong.SetFullName.AValue">
+        <short/>
+      </element>
+      <!-- procedure Visibility: private -->
+      <element name="TSong.SetName">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TSong.SetName.AValue">
+        <short/>
+      </element>
+      <!-- procedure Visibility: private -->
+      <element name="TSong.SetTagLoaded">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TSong.SetTagLoaded.AValue">
+        <short/>
+      </element>
+      <!-- constructor Visibility: public -->
+      <element name="TSong.Create">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TSong.Create.aFileName">
+        <short/>
+      </element>
+      <!-- destructor Visibility: public -->
+      <element name="TSong.Destroy">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- procedure Visibility: public -->
+      <element name="TSong.SetTags">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TSong.SetTags.AValue">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TSong.LoadTags">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TSong.LoadTags.Result">
+        <short/>
+      </element>
+      <!-- property Visibility: public -->
+      <element name="TSong.FilePath">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- property Visibility: public -->
+      <element name="TSong.FileName">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- property Visibility: public -->
+      <element name="TSong.Title">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- property Visibility: public -->
+      <element name="TSong.Tags">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- property Visibility: public -->
+      <element name="TSong.TagLoaded">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- property Visibility: public -->
+      <element name="TSong.FullName">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- property Visibility: public -->
+      <element name="TSong.ExtraProperty">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- function Visibility: default -->
+      <element name="TagValue">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TagValue.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TagValue.Tags">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TagValue.Kind">
+        <short/>
+      </element>
+    </module>
+    <!-- song -->
+  </package>
+</fpdoc-descriptions>

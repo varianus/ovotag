@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fpdoc-descriptions>
+  <package name="ovotag">
+    <short>A Pascal library to read tags from audio files</short>
+    <module name="basetag"/>
+  </package>
+</fpdoc-descriptions>

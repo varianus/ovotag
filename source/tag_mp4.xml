@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fpdoc-descriptions>
+  <package name="ovotag">
+    <!--
+  ====================================================================
+    tag_MP4
+  ====================================================================
+-->
+    <module name="tag_MP4">
+      <short/>
+      <descr/>
+      <!-- uses unit Visibility: default -->
+      <element name="Classes">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="SysUtils">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="baseTag">
+        <short/>
+      </element>
+      <!-- class Visibility: default -->
+      <element name="TMp4Frame">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TMp4Frame.fFlags">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TMp4Frame.Data">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TMp4Frame.fSize">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- function Visibility: protected -->
+      <element name="TMp4Frame.GetAsString">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TMp4Frame.GetAsString.Result">
+        <short/>
+      </element>
+      <!-- procedure Visibility: protected -->
+      <element name="TMp4Frame.SetAsString">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TMp4Frame.SetAsString.AValue">
+        <short/>
+      </element>
+      <!-- function Visibility: protected -->
+      <element name="TMp4Frame.GetSize">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TMp4Frame.GetSize.Result">
+        <short/>
+      </element>
+      <!-- constructor Visibility: public -->
+      <element name="TMp4Frame.Create">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- destructor Visibility: public -->
+      <element name="TMp4Frame.Destroy">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TMp4Frame.ReadFromStream">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TMp4Frame.ReadFromStream.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TMp4Frame.ReadFromStream.AStream">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TMp4Frame.ReadFromStream.ExtInfo">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TMp4Frame.WriteToStream">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TMp4Frame.WriteToStream.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TMp4Frame.WriteToStream.AStream">
+        <short/>
+      </element>
+      <!-- class Visibility: default -->
+      <element name="TMp4Tags">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TMp4Tags.GetCommonTags">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TMp4Tags.GetCommonTags.Result">
+        <short/>
+      </element>
+      <!-- procedure Visibility: public -->
+      <element name="TMp4Tags.SetCommonTags">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TMp4Tags.SetCommonTags.CommonTags">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TMp4Tags.ReadFromStream">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TMp4Tags.ReadFromStream.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TMp4Tags.ReadFromStream.AStream">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TMp4Tags.ReadFromStream.ExtInfo">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TMp4Tags.WriteToStream">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TMp4Tags.WriteToStream.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TMp4Tags.WriteToStream.AStream">
+        <short/>
+      </element>
+    </module>
+    <!-- tag_MP4 -->
+  </package>
+</fpdoc-descriptions>

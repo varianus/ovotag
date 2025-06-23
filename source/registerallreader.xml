@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fpdoc-descriptions>
+  <package name="ovotag">
+    <!--
+  ====================================================================
+    RegisterAllReader
+  ====================================================================
+-->
+    <module name="RegisterAllReader">
+      <element name="file_Dummy">
+        <short/>
+      </element>
+      <element name="file_flac">
+        <short/>
+      </element>
+      <element name="file_Monkey">
+        <short/>
+      </element>
+      <element name="file_mp3">
+        <short/>
+      </element>
+      <element name="file_Mp4">
+        <short/>
+      </element>
+      <element name="file_ogg">
+        <short/>
+      </element>
+      <element name="file_opus">
+        <short/>
+      </element>
+      <element name="file_Wave">
+        <short/>
+      </element>
+      <element name="file_wma">
+        <short/>
+      </element>
+      <short>Register all known readers</short>
+      <descr>This unit uses all known tag readers so they are automatically registered at initialization.</descr>
+    </module>
+    <!-- RegisterAllReader -->
+  </package>
+</fpdoc-descriptions>

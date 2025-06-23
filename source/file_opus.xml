@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fpdoc-descriptions>
+  <package name="ovotag">
+    <!--
+  ====================================================================
+    file_opus
+  ====================================================================
+-->
+    <module name="file_opus">
+      <short/>
+      <descr/>
+      <!-- uses unit Visibility: default -->
+      <element name="Classes">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="SysUtils">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="AudioTag">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="baseTag">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="tag_Vorbis">
+        <short/>
+      </element>
+      <!-- constant Visibility: default -->
+      <element name="OPUSFileMask">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- class Visibility: default -->
+      <element name="TOpusReader">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TOpusReader.fTags">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TOpusReader.FChannelModeID">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TOpusReader.FSampleRate">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TOpusReader.fBitRate">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TOpusReader.FSamples">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- function Visibility: private -->
+      <element name="TOpusReader.FGetChannelMode">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TOpusReader.FGetChannelMode.Result">
+        <short/>
+      </element>
+      <!-- function Visibility: private -->
+      <element name="TOpusReader.GetSamples">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TOpusReader.GetSamples.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TOpusReader.GetSamples.Source">
+        <short/>
+      </element>
+      <!-- function Visibility: protected -->
+      <element name="TOpusReader.GetDuration">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TOpusReader.GetDuration.Result">
+        <short/>
+      </element>
+      <!-- function Visibility: protected -->
+      <element name="TOpusReader.GetTags">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TOpusReader.GetTags.Result">
+        <short/>
+      </element>
+      <!-- function Visibility: protected -->
+      <element name="TOpusReader.DumpInfo">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TOpusReader.DumpInfo.Result">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TOpusReader.isUpdateable">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TOpusReader.isUpdateable.Result">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TOpusReader.LoadFromFile">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TOpusReader.LoadFromFile.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TOpusReader.LoadFromFile.AFileName">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TOpusReader.SaveToFile">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TOpusReader.SaveToFile.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TOpusReader.SaveToFile.AFileName">
+        <short/>
+      </element>
+    </module>
+    <!-- file_opus -->
+  </package>
+</fpdoc-descriptions>

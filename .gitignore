@@ -1,0 +1,22 @@
+# compiler-generated binaries (safe to delete)
+*.exe
+*.dll
+*.bpl
+*.so
+*.apk
+*.map
+*.ppu
+*.lib
+*.a
+*.o
+lib/
+bin/
+
+
+# local files (user-specific info)
+*.lps
+
+# history and backups
+backup/
+*.~*
+

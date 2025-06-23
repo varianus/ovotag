@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fpdoc-descriptions>
+  <package name="ovotag">
+    <!--
+  ====================================================================
+    file_ogg
+  ====================================================================
+-->
+    <module name="file_ogg">
+      <short/>
+      <descr/>
+      <!-- uses unit Visibility: default -->
+      <element name="Classes">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="SysUtils">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="AudioTag">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="baseTag">
+        <short/>
+      </element>
+      <!-- uses unit Visibility: default -->
+      <element name="tag_Vorbis">
+        <short/>
+      </element>
+      <!-- constant Visibility: default -->
+      <element name="OGGFileMask">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- class Visibility: default -->
+      <element name="TOGGReader">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TOGGReader.fTags">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TOGGReader.FChannelModeID">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TOGGReader.FSampleRate">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TOGGReader.fBitRate">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- variable Visibility: private -->
+      <element name="TOGGReader.FSamples">
+        <short/>
+        <descr/>
+        <seealso/>
+      </element>
+      <!-- function Visibility: private -->
+      <element name="TOGGReader.FGetChannelMode">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TOGGReader.FGetChannelMode.Result">
+        <short/>
+      </element>
+      <!-- function Visibility: private -->
+      <element name="TOGGReader.GetSamples">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TOGGReader.GetSamples.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TOGGReader.GetSamples.Source">
+        <short/>
+      </element>
+      <!-- function Visibility: protected -->
+      <element name="TOGGReader.GetDuration">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TOGGReader.GetDuration.Result">
+        <short/>
+      </element>
+      <!-- function Visibility: protected -->
+      <element name="TOGGReader.GetTags">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TOGGReader.GetTags.Result">
+        <short/>
+      </element>
+      <!-- function Visibility: protected -->
+      <element name="TOGGReader.DumpInfo">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TOGGReader.DumpInfo.Result">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TOGGReader.isUpdateable">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TOGGReader.isUpdateable.Result">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TOGGReader.LoadFromFile">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TOGGReader.LoadFromFile.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TOGGReader.LoadFromFile.AFileName">
+        <short/>
+      </element>
+      <!-- function Visibility: public -->
+      <element name="TOGGReader.SaveToFile">
+        <short/>
+        <descr/>
+        <errors/>
+        <seealso/>
+      </element>
+      <!-- function result Visibility: default -->
+      <element name="TOGGReader.SaveToFile.Result">
+        <short/>
+      </element>
+      <!-- argument Visibility: default -->
+      <element name="TOGGReader.SaveToFile.AFileName">
+        <short/>
+      </element>
+    </module>
+    <!-- file_ogg -->
+  </package>
+</fpdoc-descriptions>
