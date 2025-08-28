@@ -184,10 +184,11 @@ Used to choose correct tag in ID3v2 (<b>TYEAR</b> or <b>TDRC</b>)</descr>
         <short/>
       </element>
       <element name="ExtractGenre">
-        <short/>
-        <descr/>
-        <errors/>
-        <seealso/>
+        <short>Extract the genre from the genre field</short>
+        <descr>ID3v1 tags use a numeric value (single byte, 255 possible values)  to defines genre. The mapping</descr>
+        <seealso>
+          <link id="id3v1genres.v1genres"/>
+        </seealso>
       </element>
       <element name="ExtractGenre.Result">
         <short/>

@@ -11,21 +11,16 @@
       <descr/>
       <!-- constant Visibility: default -->
       <element name="ID3_MaxGenre">
-        <short/>
-        <descr/>
-        <seealso/>
+        <short>Number of well-know genres from ID1! specification and Nullsoft extension version 1</short>
       </element>
       <!-- constant Visibility: default -->
       <element name="ID3_MaxGenreExtended">
-        <short/>
-        <descr/>
-        <seealso/>
+        <short>Number of well-know genres from IDV1 specification and Nullsoft extension version 1 and 2</short>
       </element>
       <!-- constant Visibility: default -->
       <element name="v1Genres">
-        <short/>
-        <descr/>
-        <seealso/>
+        <short>Array of string containing well-known genres</short>
+        <descr>The index of every string correspond to value of ID3v1 byte genre</descr>
       </element>
     </module>
     <!-- ID3v1Genres -->
