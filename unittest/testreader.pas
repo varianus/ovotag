@@ -10,10 +10,10 @@ uses
 
 Const
   {$IFDEF UNIX}
-  TEST_PATH = '../../examples/demosound/';
+  TEST_PATH = '../../../examples/demosound/';
   {$ENDIF}
   {$IFDEF WINDOWS}
-  TEST_PATH = '..\..\examples\demosound\';
+  TEST_PATH = '..\..\..\examples\demosound\';
   {$ENDIF}
 
 type
