@@ -76,7 +76,7 @@ function priv_lazbuild
     declare -i exitCode=0
     if [[ -f "${VAR[tst]}" ]]; then
         read -r < <(
-            lazbuild --build-all --recursive --no-write-project "${VAR[tst]}" |
+            lazbuild --build-all --recursive --no-write-project --build-mode=console "${VAR[tst]}" |
                 awk '/Linking/{print $3}'
         )
         if ! ("${REPLY}" --all --format=plain --progress >&2); then
