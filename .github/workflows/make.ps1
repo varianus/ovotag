@@ -28,7 +28,7 @@ Function Build-Project {
     @(
         @{
             Cmd = 'lazbuild'
-            Url = 'https://netix.dl.sourceforge.net/project/lazarus/Lazarus%20Windows%2064%20bits/Lazarus%203.8/lazarus-3.8-fpc-3.2.2-win64.exe?viasf=1'
+            Url = 'https://netix.dl.sourceforge.net/project/lazarus/Lazarus%20Windows%2064%20bits/Lazarus%204.4/lazarus-4.4-fpc-3.2.2-win64.exe?viasf=1'
             Path = "C:\Lazarus"
         }
     ) | Where-Object {
@@ -93,7 +93,7 @@ Function Build-Project {
     }) + (
         (Get-ChildItem -Filter '*.lpi' -Recurse -File –Path $Var.app).FullName |
             ForEach-Object {
-                $Output = (& lazbuild --build-all --recursive --no-write-project $_)
+                $Output = (& lazbuild --build-all --recursive --no-write-project --build-mode=console $_)
                 $Result = @("$([char]27)[32m.... [$($LastExitCode)] build project $($_)$([char]27)[0m")
                 $exitCode = $(Switch ($LastExitCode) {
                     0 {

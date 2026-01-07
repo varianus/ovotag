@@ -8,13 +8,8 @@ uses
   Classes, SysUtils, fpcunit, testutils, testregistry, testdecorator, basetag;
 
 
-Const
-  {$IFDEF UNIX}
-  TEST_PATH = '../../examples/demosound/';
-  {$ENDIF}
-  {$IFDEF WINDOWS}
-  TEST_PATH = '..\..\examples\demosound\';
-  {$ENDIF}
+Var TEST_PATH:String;
+
 
 type
   { TReaderTestSetup }
@@ -110,5 +105,7 @@ begin
   AssertEquals('à Commento ò',Tags.GetCommonTags.Comment);
 end;
 
+initialization
+ TEST_PATH := IncludeTrailingPathDelimiter(GetEnvironmentVariable('GITHUB_WORKSPACE')) +'examples'+PathDelim+'demosound'+PathDelim;
 
 end.

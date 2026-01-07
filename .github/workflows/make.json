@@ -1,7 +1,7 @@
 {
     "app" : "examples",
     "lib" : "packages",
-    "tst" : "tests",
+    "tst" : "unittest/ovotag_testunit.lpi",
     "pkg" : [
     ]
 }
