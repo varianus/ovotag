@@ -37,9 +37,9 @@ function priv_lazbuild
         case ${ID:?} in
             debian | ubuntu)
                 sudo apt-get update && sudo apt-get install libxml2-utils libdbus-glib-1-dev binutils-mingw-w64-x86-64 && sudo ln -s /usr/bin/x86_64-w64-mingw32-windres /usr/bin/windres
-                wget -O lazarus.deb -nc https://netix.dl.sourceforge.net/project/lazarus/Lazarus%20Linux%20amd64%20DEB/Lazarus%204.0/lazarus-project_4.0.0-0_amd64.deb?viasf=1
-                wget -O fpclaz.deb -nc https://netix.dl.sourceforge.net/project/lazarus/Lazarus%20Linux%20amd64%20DEB/Lazarus%204.0/fpc-laz_3.2.2-210709_amd64.deb?viasf=1
-                wget -O fpcsrc.deb -nc https://netix.dl.sourceforge.net/project/lazarus/Lazarus%20Linux%20amd64%20DEB/Lazarus%204.0/fpc-src_3.2.2-210709_amd64.deb?viasf=1
+                wget -O lazarus.deb -nc https://netix.dl.sourceforge.net/project/lazarus/Lazarus%20Linux%20amd64%20DEB/Lazarus%204.4/lazarus-project_4.4.0-0_amd64.deb?viasf=1
+                wget -O fpclaz.deb -nc https://netix.dl.sourceforge.net/project/lazarus/Lazarus%20Linux%20amd64%20DEB/Lazarus%204.4/fpc-laz_3.2.2-210709_amd64.deb?viasf=1
+                wget -O fpcsrc.deb -nc https://netix.dl.sourceforge.net/project/lazarus/Lazarus%20Linux%20amd64%20DEB/Lazarus%204.4/fpc-src_3.2.2-210709_amd64.deb?viasf=1
                 sudo apt install ./lazarus.deb ./fpclaz.deb ./fpcsrc.deb
                 ;;
         esac
