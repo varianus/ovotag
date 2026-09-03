@@ -1,0 +1,27 @@
+*** Begin Patch
+*** Update File: file_mp3.pas
+@@
+ function GetFrameLength(const Frame: FrameData): Dword;
+ var
+   Coefficient, BitRate, SampleRate, Padding: word;
+ begin
+@@
+   Result := Trunc(Coefficient * BitRate * 1000 / SampleRate) + Padding;
+ end;
++
++function GetSamplesPerFrame(const Frame: FrameData): Integer;
++begin
++  { Return number of samples per MPEG frame depending on layer and version }
++  if Frame.LayerID = MPEG_LAYER_I then
++    Result := 384
++  else if Frame.LayerID = MPEG_LAYER_II then
++    Result := 1152
++  else { Layer III }
++  begin
++    if Frame.VersionID = MPEG_VERSION_1 then
++      Result := 1152
++    else
++      Result := 576;
++  end;
++end;
+*** End Patch
