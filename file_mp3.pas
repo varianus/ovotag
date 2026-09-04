@@ -392,7 +392,7 @@ begin
   if FFrame.Found then
   begin
     if (FVBR.Found) and (FVBR.Frames > 0) then
-      Result := trunc(FVBR.Frames * GetCoefficient(FFrame) *  8 / GetSampleRate(FFrame) * 1000)
+      Result := trunc(FVBR.Frames * GetCoefficient(FFrame) / GetSampleRate(FFrame) * 1000)
     else
     begin
       MPEGSize := FMPEGEnd - FMPEGStart;
@@ -518,4 +518,3 @@ end;
 initialization
   RegisterTagReader(Mp3FileMask, TMP3Reader);
 end.
-
