@@ -53,6 +53,7 @@ type
     TrackString: string;
     Year: string;
     HasImage:boolean;
+    class operator initialize(var value:TCommonTags);
   end;
 
   ACommonTags = Array of TCommonTags;
@@ -149,6 +150,8 @@ type
 
   end;
 
+  TBaseStreamReader = TFileStream;
+
   { TTagReader }
   TTagReaderClass = class of TTagReader;
 
@@ -183,6 +186,7 @@ Function ExportToJson(const Tags: TcommonTags):string;
 
 
 implementation
+
 uses fpjson;
 
 operator = (t1 : TCommonTags; t2 : TCommonTags) b : boolean;
@@ -216,7 +220,7 @@ end;
 //  Tags.Year         := '';
 //  Tags.Duration     := 0;
 //  Tags.HasImage     := False;
-//
+
 //end;
 
 function GetTagByID(Tags:TcommonTags; Field: TIDFields):string;
@@ -333,7 +337,7 @@ end;
 
 constructor TTagReader.Create;
 begin
-//
+
 end;
 
 destructor TTagReader.Destroy;
@@ -410,6 +414,25 @@ begin
   Result := false;
 end;
 
+{ TCommonTags }
+
+class operator TCommonTags.initialize(var value: TCommonTags);
+begin
+    Value.ID           := 0;
+    Value.FileName     := '';
+    Value.TrackString  := '';
+    Value.Track        := 0;
+    Value.Title        := '';
+    Value.Album        := '';
+    Value.AlbumArtist  := '';
+    Value.Artist       := '';
+    Value.Genre        := '';
+    Value.Comment      := '';
+    Value.Year         := '';
+    Value.Duration     := 0;
+    Value.HasImage     := False;
+end;
+
 { TTags }
 
 function TTags.GetFrameByID(ID: string): TFrameElement;
@@ -419,13 +442,11 @@ var
 begin
   fid:= -1;
   for i:=0 to FramesList.Count -1 do
-    begin
       if AnsiCompareText(TFrameElement(FramesList[i]).id, id) = 0 then
          begin
            fid:=i;
            break;
          end;
-    end;
   if fid <> -1 then
      result := GetFrameByIndex(fid)
   else
@@ -434,7 +455,10 @@ end;
 
 function TTags.GetImageCount: integer;
 begin
-  Result := ImagesList.Count;
+  if Assigned(ImagesList) then
+    Result := ImagesList.Count
+  else
+    Result := 0;
 end;
 
 function TTags.GetCount: integer;
@@ -454,13 +478,11 @@ var
 begin
   fid:= -1;
   for i:=0 to FramesList.Count -1 do
-    begin
       if UpperCase(TImageElement(FramesList[i]).ID) = UpperCase(id) then
          begin
            fid:=i;
            break;
          end;
-    end;
   if fid <> -1 then
      result := GetImageByIndex(fid)
   else
@@ -532,7 +554,7 @@ end;
 
 procedure TTags.SetCommonTags(CommonTags: TCommonTags);
 begin
-  //
+
 end;
 
 procedure TTags.SetFrameValue(const ID:String;const Value:String; FrameClass: TFrameElementClass);
@@ -582,7 +604,7 @@ end;
 
 constructor TFrameElement.Create;
 begin
- //
+
 end;
 
 constructor TFrameElement.Create(ID: String);
@@ -592,8 +614,7 @@ end;
 
 destructor TFrameElement.Destroy;
 begin
-  //
+
 end;
 
 end.
-

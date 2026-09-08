@@ -518,3 +518,4 @@ end;
 initialization
   RegisterTagReader(Mp3FileMask, TMP3Reader);
 end.
+
