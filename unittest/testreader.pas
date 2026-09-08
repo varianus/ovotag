@@ -9,6 +9,7 @@ uses
 
 
 Var TEST_PATH:String;
+var Tags: TTagReader;
 
 
 type
@@ -42,8 +43,6 @@ type
 
 
 implementation
-var
-  Tags: TTagReader;
 
 { TReaderTestSetup }
 

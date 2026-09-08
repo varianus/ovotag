@@ -155,6 +155,7 @@ const
 
   { VBR header ID for Xing/FhG }
   VBR_ID_XING = 'Xing';                                         { Xing VBR ID }
+  VBR_ID_INFO = 'Info';                                         { Xing CBR ID }
   VBR_ID_FHG = 'VBRI';                                           { FhG VBR ID }
 
 
@@ -314,14 +315,17 @@ end;
 { --------------------------------------------------------------------------- }
 
 function FindVBR(const Index: word; Data: array of byte): VBRData;
+var
+  HeaderKind: array[1..4] of ansichar;
 begin
   { Check for VBR header at given position }
   FillChar(Result, SizeOf(Result), 0);
-  if Chr(Data[Index]) + Chr(Data[Index + 1]) + Chr(Data[Index + 2]) +
-  Chr(Data[Index + 3]) = VBR_ID_XING then
-    Result := GetXingInfo(Index, Data);
-  if Chr(Data[Index]) + Chr(Data[Index + 1]) + Chr(Data[Index + 2]) +
-  Chr(Data[Index + 3]) = VBR_ID_FHG then
+  Move(Data[Index], HeaderKind[1], 4);
+
+  if (HeaderKind = VBR_ID_XING) or (HeaderKind = VBR_ID_INFO) then
+    Result := GetXingInfo(Index, Data)
+  else
+  if HeaderKind = VBR_ID_FHG then
     Result := GetFhGInfo(Index, Data);
 end;
 
@@ -438,7 +442,6 @@ var
   fStream: TBufferedFileStream;
   Data: array [1..SizeOfData] of byte;
   Transferred: DWord;
-
 begin
   Result := inherited LoadFromFile(AFileName);
   fStream := TBufferedFileStream.Create(fileName, fmOpenRead or fmShareDenyNone);
@@ -468,7 +471,6 @@ begin
     fStream.Free;
   end;
 
-
 end;
 
 function TMP3Reader.SaveToFile(AFileName: Tfilename): boolean;
@@ -485,9 +487,7 @@ begin
 
   SourceStream.Read(wheader, SizeOf(wheader));
   if wheader.Marker = ID3_HEADER_MARKER then
-  begin
     fOldSize := SyncSafe_Decode(wheader.size);
-  end;
 
   RealSize := fTags.RealSize;
 
@@ -518,4 +518,3 @@ end;
 initialization
   RegisterTagReader(Mp3FileMask, TMP3Reader);
 end.
-
