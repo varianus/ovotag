@@ -54,14 +54,14 @@ Function Build-Project {
         New-Item -Type Directory -Path $_.Path | Out-Null
         Expand-Archive -Path $_.OutFile -DestinationPath $_.Path
         Remove-Item $_.OutFile
-        (Get-ChildItem -Filter '*.lpk' -Recurse -File –Path $_.Path).FullName |
+        (Get-ChildItem -Filter '*.lpk' -Recurse -File -Path $_.Path).FullName |
             ForEach-Object {
                 & lazbuild --add-package-link $_ | Out-Null
                 Return "$([char]27)[33m.... [$($LastExitCode)] add package link $($_)$([char]27)[0m"
             }
     } | Out-Host
     If (Test-Path -Path $VAR.lib) {
-        (Get-ChildItem -Filter '*.lpk' -Recurse -File –Path $VAR.lib).FullName |
+        (Get-ChildItem -Filter '*.lpk' -Recurse -File -Path $VAR.lib).FullName |
             Where-Object {
                 $_ -notmatch '(cocoa|x11|_template)'
             } | ForEach-Object {
@@ -91,7 +91,7 @@ Function Build-Project {
         }
         Default {0}
     }) + (
-        (Get-ChildItem -Filter '*.lpi' -Recurse -File –Path $Var.app).FullName |
+        (Get-ChildItem -Filter '*.lpi' -Recurse -File -Path $Var.app).FullName |
             ForEach-Object {
                 $Output = (& lazbuild --build-all --recursive --no-write-project --build-mode=console $_)
                 $Result = @("$([char]27)[32m.... [$($LastExitCode)] build project $($_)$([char]27)[0m")
