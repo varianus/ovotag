@@ -15,7 +15,7 @@ Function Request-File {
             Uri = $REPLY
             OutFile = (Split-Path -Path $REPLY -Leaf).Split('?')[0]
         }
-        Invoke-WebRequest @params | Out-Null
+        Invoke-WebRequest -AllowInsecureRedirect @params | Out-Null
         Return $params.OutFile
     }
 }
