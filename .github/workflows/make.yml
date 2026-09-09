@@ -114,10 +114,10 @@ jobs:
     - name: Register packages in lazbuild
       run: |
          ${{ matrix.config.lazbuild }}  --add-package-link packages/ovotag.lpk        
-    - name: Build OvoPlayer
+    - name: Build OvoTag
       run: |
          ${{ matrix.config.lazbuild }}  ${{ env.LAZ_OPT }} --build-mode=Release "packages/ovotag.lpk"
-    - name: Build OvoPlayer
+    - name: Run Unit Testing
       run: |
          ${{ matrix.config.lazbuild }}  ${{ env.LAZ_OPT }} --build-mode=console "unittest/ovotag_testunit.lpi"
-         ./unittest/bin/ovotag_testunit
+         ./unittest/bin/ovotag_testunit --format=plain -a --sparse
