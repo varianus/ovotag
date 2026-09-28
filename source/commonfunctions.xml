@@ -132,7 +132,6 @@
       <element name="DecodeChannelNumber.Result">
         <short>Textual representaion of the channel number</short>
         <descr>Return a string representing channel number.
-
 Values are :
 <ul>
             <li>Mono</li>
